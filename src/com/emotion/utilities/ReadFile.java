@@ -39,7 +39,7 @@ public class ReadFile {
             br = new BufferedReader(new FileReader(file.getAbsolutePath()));
             String line = br.readLine();
             int count = 1;
-            System.out.println("************  LEXICALCAL ANALISIS  **************");
+            System.out.println("************  ANALISIS LEXICO  **************");
             while (line != null) {
                 isLexema(line);
                 line = br.readLine();
@@ -47,12 +47,12 @@ public class ReadFile {
             }
             br.close();
         } catch (FileNotFoundException e) {
-            throw new FileException("File is not found");
+            throw new FileException("No se encontró el archivo");
         } catch (IOException e) {
-            throw new FileException("File can not be read. It could be corrupted");
+            throw new FileException("No se puede leer el archivo. Puede estar corrupto");
         }
         if (!status) {
-            throw new LexicoException("Lexical error was found at line: ");
+            throw new LexicoException("Error lexico encontrado en la linea: ");
         }
         SintacticAnalizer sintactic = new SintacticAnalizer();
         sintactic.setRowGramar(0);
@@ -106,7 +106,7 @@ public class ReadFile {
 
             } else if (rowLexema > 199) {
                 token.append(line.charAt(i+1));
-                System.out.println("ERROR token ---->   " + token.toString().trim() + "  -  " + rowLexema);
+                System.out.println("ERROR LEXICO Token invalido ---->   " + token.toString().trim() + "  -  " + rowLexema);
                 baseLexico.setRowLexema(0);
                 token.setLength(0);
                 status = false;
