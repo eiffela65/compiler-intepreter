@@ -57,7 +57,7 @@ public class SintacticAnalizer {
         int lastParenthesis = 0;
         int lastRow = 0;
         int i = 0;
-        System.out.println("************  SINTACTICAL ANALISIS  **************");
+        System.out.println("************  ANALISIS SINTACTICO  **************");
         while(i < len){
 //            System.out.println("-------------------------------------------------------");
 //            System.out.println(tokens.get(i) + " ----> [" + rowGramar + " - " + Base.getColumn(lexemas.get(i)) + "]");
@@ -120,8 +120,8 @@ public class SintacticAnalizer {
 //            System.out.println(status);
         }
         if(!status)
-            System.out.println("Sintactical Error near of " + lexema);
-        System.out.println("Sintactical Process Completed...");
+            System.out.println("Error sintactico cerca de:  " + lexema);
+        System.out.println("Proceso sintactico completo (Sin error sintactico)");
         return status;
     }
     
