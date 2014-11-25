@@ -8,12 +8,18 @@ package com.emotion.start;
 import com.emotion.lexico.LexicAnalizer;
 import com.emotion.utilities.ReadFile;
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
 public class Emotion extends javax.swing.JFrame {
 
+    private String fileName;
     /**
      * Creates new form Emotion
      */
@@ -44,6 +50,9 @@ public class Emotion extends javax.swing.JFrame {
         jTextArea1 = new javax.swing.JTextArea();
         jButton3 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jTextField2 = new javax.swing.JTextField();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -57,12 +66,12 @@ public class Emotion extends javax.swing.JFrame {
             }
         });
 
-        jLabel2.setText("Load a File:");
+        jLabel2.setText("Nombre de Archivo:");
 
-        jTextField1.setText("File Name");
+        jTextField1.setText("Archivo *.lya");
         jTextField1.setEnabled(false);
 
-        jButton1.setText("Search");
+        jButton1.setText("Abrir");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -86,7 +95,7 @@ public class Emotion extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextField1)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 540, Short.MAX_VALUE)
+                        .addGap(0, 550, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,9 +124,9 @@ public class Emotion extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("Load File", jPanel1);
+        jTabbedPane1.addTab("Leer Archivo", jPanel1);
 
-        jLabel3.setText("Write your own code:");
+        jLabel3.setText("Escribe tu codigo aqui:");
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -144,11 +153,20 @@ public class Emotion extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(jTextArea1);
 
-        jButton3.setText("Guardar y analizar");
+        jButton3.setText("Guardar");
         jButton3.setEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
+            }
+        });
+
+        jLabel6.setText("Nombre de Archivo:");
+
+        jButton4.setText("Abrir y Analizar");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -159,32 +177,46 @@ public class Emotion extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel5)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addGap(18, 18, 18))
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel5))
+                        .addContainerGap())
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel3Layout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jTextField2))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 442, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                        .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel3)
-                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jButton3)))
+                        .addComponent(jButton3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton4)))
                 .addGap(18, 18, 18)
                 .addComponent(jLabel5)
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("Write Code", jPanel3);
+        jTabbedPane1.addTab("Editor de Codigo", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -236,7 +268,8 @@ public class Emotion extends javax.swing.JFrame {
         if (jTextArea1.getText().equals("") || jTextArea1.getText() == null) {
             jButton3.setEnabled(false);
         } else {
-            jButton3.setEnabled(true);
+            if (!jTextField2.getText().equals("") && jTextField2.getText() != null)
+                jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_jTextArea1FocusLost
 
@@ -244,7 +277,8 @@ public class Emotion extends javax.swing.JFrame {
         if (jTextArea1.getText().equals("") || jTextArea1.getText() == null) {
             jButton3.setEnabled(false);
         } else {
-            jButton3.setEnabled(true);
+            if (!jTextField2.getText().equals("") && jTextField2.getText() != null)
+                jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_jTextArea1KeyPressed
 
@@ -252,7 +286,8 @@ public class Emotion extends javax.swing.JFrame {
         if (jTextArea1.getText().equals("") || jTextArea1.getText() == null) {
             jButton3.setEnabled(false);
         } else {
-            jButton3.setEnabled(true);
+            if (!jTextField2.getText().equals("") && jTextField2.getText() != null)
+                jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_jTextArea1MouseClicked
 
@@ -260,7 +295,8 @@ public class Emotion extends javax.swing.JFrame {
         if (jTextArea1.getText().equals("") || jTextArea1.getText() == null) {
             jButton3.setEnabled(false);
         } else {
-            jButton3.setEnabled(true);
+            if (!jTextField2.getText().equals("") && jTextField2.getText() != null)
+                jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_jTextArea1KeyReleased
 
@@ -268,7 +304,8 @@ public class Emotion extends javax.swing.JFrame {
         if (jTextArea1.getText().equals("") || jTextArea1.getText() == null) {
             jButton3.setEnabled(false);
         } else {
-            jButton3.setEnabled(true);
+            if (!jTextField2.getText().equals("") && jTextField2.getText() != null)
+                jButton3.setEnabled(true);
         }
     }//GEN-LAST:event_jTextArea1KeyTyped
 
@@ -292,28 +329,27 @@ public class Emotion extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
 
-        jLabel5.setText("Procesando...");
+        fileName = jTextField2.getText() + ".lya";
+        String fileContent = jTextArea1.getText();
         jButton3.setEnabled(false);
-//        System.out.println(jTabbedPane1.getSelectedIndex());
         jTabbedPane1.setEnabledAt(0, false);
-        jTextArea1.setEditable(false);
-        String textArea = jTextArea1.getText();
-        LexicAnalizer lexic = new LexicAnalizer();
-        lexic.startAnalisis(textArea);
-        if (lexic.isStatus()) {
-            jLabel5.setText("Completado. No se encontraron errores");
-        } else {
-            jLabel5.setText("Se encontraron errores.");
+        try {
+            Files.write(Paths.get("./resources/" + fileName), fileContent.getBytes());
+            jButton4.setEnabled(true);
+        } catch (IOException ex) {
+            Logger.getLogger(Emotion.class.getName()).log(Level.SEVERE, null, ex);
+            jTabbedPane1.setEnabledAt(0, true);
+            jButton4.setEnabled(false);
+            jButton3.setEnabled(true);
         }
         
-//        jLabel5.setText("Done. No Errors found.");
-//        jTabbedPane1.setEnabledAt(0, true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jTabbedPane1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTabbedPane1MouseClicked
         if (jTabbedPane1.getSelectedIndex() == 1) {
             jButton1.setEnabled(true);
             jButton2.setEnabled(false);
+            jButton4.setEnabled(false);
             jTextField1.setText("File Name");
             jLabel4.setText("");
         }
@@ -323,6 +359,25 @@ public class Emotion extends javax.swing.JFrame {
             jLabel5.setText("");
         }
     }//GEN-LAST:event_jTabbedPane1MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        jLabel5.setText("Procesando...");
+        jButton3.setEnabled(false);
+        jButton4.setEnabled(false);
+        // System.out.println(jTabbedPane1.getSelectedIndex());
+        // tabbedPane.getTabCount()
+        jTabbedPane1.setEnabledAt(0, false);
+        file = new File("./resources/" + fileName);
+        LexicAnalizer lexic = new LexicAnalizer();
+        lexic.startAnalisis(file);
+        if (lexic.isStatus()) {
+            jLabel5.setText("Completado. No se encontraron errores");
+        } else {
+            jLabel5.setText("Se encontraron errores.");
+        }
+        jTabbedPane1.setEnabledAt(0, true);
+        jButton3.setEnabled(true);
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -361,16 +416,19 @@ public class Emotion extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
     // End of variables declaration//GEN-END:variables
 }
