@@ -121,7 +121,7 @@ public class SintacticAnalizer {
         }
         if(!status)
             System.out.println("Error sintactico cerca de:  " + lexema);
-        System.out.println("Proceso sintactico completo (Sin error sintactico)");
+        System.out.println("Fin de analisis sintactico");
         return status;
     }
     

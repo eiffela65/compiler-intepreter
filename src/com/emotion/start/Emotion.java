@@ -310,7 +310,7 @@ public class Emotion extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextArea1KeyTyped
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        jLabel4.setText("Procesando...");
+        jLabel4.setText("Terminado");
         jButton1.setEnabled(false);
         jButton2.setEnabled(false);
         // System.out.println(jTabbedPane1.getSelectedIndex());
@@ -319,9 +319,9 @@ public class Emotion extends javax.swing.JFrame {
         LexicAnalizer lexic = new LexicAnalizer();
         lexic.startAnalisis(file);
         if (lexic.isStatus()) {
-            jLabel4.setText("Completado. No se encontraron errores");
+           // jLabel4.setText("Completado. No se encontraron errores");
         } else {
-            jLabel4.setText("Se encontraron errores.");
+           // jLabel4.setText("Se encontraron errores.");
         }
         jTabbedPane1.setEnabledAt(1, true);
         jButton1.setEnabled(true);
@@ -361,7 +361,7 @@ public class Emotion extends javax.swing.JFrame {
     }//GEN-LAST:event_jTabbedPane1MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        jLabel5.setText("Procesando...");
+        jLabel5.setText("Terminado.");
         jButton3.setEnabled(false);
         jButton4.setEnabled(false);
         // System.out.println(jTabbedPane1.getSelectedIndex());
@@ -371,7 +371,7 @@ public class Emotion extends javax.swing.JFrame {
         LexicAnalizer lexic = new LexicAnalizer();
         lexic.startAnalisis(file);
         if (lexic.isStatus()) {
-            jLabel5.setText("Completado. No se encontraron errores");
+            jLabel5.setText("Completado.");
         } else {
             jLabel5.setText("Se encontraron errores.");
         }
