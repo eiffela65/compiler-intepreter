@@ -73,11 +73,10 @@ public class ReadFile {
 //            System.out.println(line.charAt(i) + "  -  [" + baseLexico.getRowLexema() + " - " + baseLexico.getColumnLexema() + "]");
             rowLexema = baseLexico.getLexema(line.charAt(i));
             if (rowLexema == 6) {
-                if (line.charAt(i) != 'E') {
-                    rowLexema = 507;
-                }
-                if (line.charAt(i) != 'e') {
-                    rowLexema = 507;
+                if ((int)line.charAt(i) != 101) {
+                    if ((int)line.charAt(i) != 69) {
+                        rowLexema = 507;
+                    }
                 }
             }
             baseLexico.setRowLexema(rowLexema);
