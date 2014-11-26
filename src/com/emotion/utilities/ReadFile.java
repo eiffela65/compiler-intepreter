@@ -75,7 +75,7 @@ public class ReadFile {
             if (rowLexema == 6) {
                 if ((int)line.charAt(i) != 101) {
                     if ((int)line.charAt(i) != 69) {
-                        rowLexema = 501;
+                        rowLexema = 507;
                     }
                 }
             }

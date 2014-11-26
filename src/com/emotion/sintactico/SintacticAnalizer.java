@@ -59,8 +59,8 @@ public class SintacticAnalizer {
         int i = 0;
         System.out.println("************  ANALISIS SINTACTICO  **************");
         while(i < len){
-//            System.out.println("-------------------------------------------------------");
-//            System.out.println(tokens.get(i) + " ----> [" + rowGramar + " - " + Base.getColumn(lexemas.get(i)) + "]");
+            System.out.println("-------------------------------------------------------");
+            System.out.println(tokens.get(i) + " ----> [" + rowGramar + " - " + Base.getColumn(lexemas.get(i)) + "]");
             
             columnGramar = Base.getColumn(lexemas.get(i));
             baseSintactical.setColumnGrammar(columnGramar);
