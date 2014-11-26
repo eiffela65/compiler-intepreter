@@ -54,12 +54,12 @@ public class ReadFile {
         if (!status) {
             throw new LexicoException("Error lexico encontrado en la linea: ");
         }
-        SintacticAnalizer sintactic = new SintacticAnalizer();
-        sintactic.setRowGramar(0);
-        sintactic.setColumnGramar(0);
-        sintactic.setLexemas(lexemas);
-        sintactic.setTokens(tokens);
-        sintactic.startAnalisis();
+//        SintacticAnalizer sintactic = new SintacticAnalizer();
+//        sintactic.setRowGramar(0);
+//        sintactic.setColumnGramar(0);
+//        sintactic.setLexemas(lexemas);
+//        sintactic.setTokens(tokens);
+//        sintactic.startAnalisis();
         return status;
     }
 
@@ -70,7 +70,7 @@ public class ReadFile {
         StringBuilder token = new StringBuilder();
         int i = 0;
         while (i < line.length()) {
-//            System.out.println(line.charAt(i) + "  -  [" + baseLexico.getRowLexema() + " - " + baseLexico.getColumnLexema() + "]");
+            System.out.println(line.charAt(i) + "  -  [" + baseLexico.getRowLexema() + " - " + baseLexico.getColumnLexema() + "]");
             rowLexema = baseLexico.getLexema(line.charAt(i));
             if (rowLexema == 6) {
                 if ((int)line.charAt(i) != 101) {
@@ -85,7 +85,7 @@ public class ReadFile {
                 if (token.toString().trim().equals("")) {
                     token.append(line.charAt(i));
                 }
-                if (rowLexema == 106) {
+                if (rowLexema == 106 || rowLexema == 110 || rowLexema == 112 || rowLexema == 114 || rowLexema == 116) {
                     token.append(line.charAt(i));
                     i++;
                 }
