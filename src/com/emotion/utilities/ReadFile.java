@@ -85,7 +85,7 @@ public class ReadFile {
                 if (token.toString().trim().equals("")) {
                     token.append(line.charAt(i));
                 }
-                if (rowLexema == 106 || rowLexema == 110 || rowLexema == 112 || rowLexema == 114 || rowLexema == 116) {
+                if (rowLexema == 106 || rowLexema == 110 || rowLexema == 112 || rowLexema == 114 || rowLexema == 116 || rowLexema == 117 || rowLexema == 105) {
                     token.append(line.charAt(i));
                     i++;
                 }
