@@ -1,12 +1,11 @@
 PENDIENTES:
 
-3.-En el estatuto if while y do while de los ejemplos en la carpeta resource marca un error sintactico cerca de A 
+3.-En el estatuto  do while de los ejemplos en la carpeta resource marca un error sintactico cerca de A 
 que no deberia estar
 4.- El estatuto write marca error sintactico al intentar usar otra expresion
 
-esos son los estatutos que intente hacer pero en todos me sale ese error ahorita seguire haciendo los otros estatutos 
-que me faltan (read y write) y pongo los ejemplos en resource tambien y si tienen error lo pongo aqui en esta lista 
-
 Ya cheque read y write y al parecer read esta bien sin embargo el write marca un error sintactico cuando se quieren poner
 mas expresiones separadas por coma 
+
+
 
