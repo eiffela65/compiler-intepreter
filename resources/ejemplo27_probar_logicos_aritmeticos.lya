@@ -43,7 +43,7 @@ I=(J-4);
 
 
 
-if (X>=Y || !Z)
+if (X>=Y || Z<30)
 
 X=(X+1);
 
@@ -51,12 +51,10 @@ endif;
 
 
 
-if(XX<=YY && !Z)
+if(XX<=YY && Z==10)
 
 XX=(XX+1);
 
 endif;
 
-
-
-enclass
+endclass
