@@ -92,10 +92,11 @@ public class ReadFile {
                 if (!Base.isReserved(token.toString().trim()) && rowLexema == 100) {
                     rowLexema = 101;
                 }
-
                 System.out.println("token ---->   " + token.toString().trim() + "  -  " + rowLexema);
-                tokens.add(token.toString().trim());
-                lexemas.add(rowLexema);
+                if(rowLexema != 108){
+                    tokens.add(token.toString().trim());
+                    lexemas.add(rowLexema);
+                }
                 token.setLength(0);
                 baseLexico.setRowLexema(0);
                 if (rowLexema > 117) {
