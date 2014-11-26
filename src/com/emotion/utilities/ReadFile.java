@@ -54,12 +54,12 @@ public class ReadFile {
         if (!status) {
             throw new LexicoException("Error lexico encontrado en la linea: ");
         }
-//        SintacticAnalizer sintactic = new SintacticAnalizer();
-//        sintactic.setRowGramar(0);
-//        sintactic.setColumnGramar(0);
-//        sintactic.setLexemas(lexemas);
-//        sintactic.setTokens(tokens);
-//        sintactic.startAnalisis();
+        SintacticAnalizer sintactic = new SintacticAnalizer();
+        sintactic.setRowGramar(0);
+        sintactic.setColumnGramar(0);
+        sintactic.setLexemas(lexemas);
+        sintactic.setTokens(tokens);
+        sintactic.startAnalisis();
         return status;
     }
 

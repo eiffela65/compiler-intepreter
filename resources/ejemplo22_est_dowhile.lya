@@ -1,6 +1,6 @@
 class ( ejemplo22_est_dowhile )
 
-declara A of int;
+declare A of int;
 
 A=0;
 
