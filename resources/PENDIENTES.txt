@@ -1,7 +1,5 @@
 PENDIENTES:
 
-1.- Los comentarios no funcionan (marca error lexico)
-2.- La notacion cientifica marca error sintactico que no deberia
 3.-En el estatuto if while y do while de los ejemplos en la carpeta resource marca un error sintactico cerca de A 
 que no deberia estar
 4.- El estatuto write marca error sintactico al intentar usar otra expresion
