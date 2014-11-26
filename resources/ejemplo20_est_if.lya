@@ -1,0 +1,24 @@
+class ( ejemplo20_est_if )
+
+declare A of int;
+declare B of int;
+declare C of int;
+declare D of int;
+
+A=10;
+
+B=5;
+
+
+if (A>B)
+
+C=100;
+
+else
+
+D=100;
+
+endif;
+
+
+endclass

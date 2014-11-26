@@ -1,0 +1,7 @@
+class ( ejemplo21_est_while )
+declare A of int;
+A=1;
+while ( A<10) 
+A=A+1;
+endwhile;
+endclass

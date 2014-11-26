@@ -1,0 +1,15 @@
+class ( ejemplo22_est_dowhile )
+
+declara A of int;
+
+A=0;
+
+do A=11;
+
+dowhile
+(A<10)
+
+enddo;
+
+endclass
+	

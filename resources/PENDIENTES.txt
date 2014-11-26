@@ -1,0 +1,9 @@
+PENDIENTES:
+
+1.- Los comentarios no funcionan (marca error lexico)
+2.- La notacion cientifica marca error sintactico que no deberia
+3.-En el estatuto if while y do while de los ejemplos en la carpeta resource marca un error sintactico cerca de A 
+que no deberia estar
+
+esos son los estatutos que intente hacer pero en todos me sale ese error ahorita seguire haciendo los otros estatutos 
+que me faltan (read y write) y pongo los ejemplos en resource tambien y si tienen error lo pongo aqui en esta lista 
