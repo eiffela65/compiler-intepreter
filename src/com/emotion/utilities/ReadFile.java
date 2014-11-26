@@ -70,7 +70,7 @@ public class ReadFile {
         StringBuilder token = new StringBuilder();
         int i = 0;
         while (i < line.length()) {
-            System.out.println(line.charAt(i) + "  -  [" + baseLexico.getRowLexema() + " - " + baseLexico.getColumnLexema() + "]");
+//            System.out.println(line.charAt(i) + "  -  [" + baseLexico.getRowLexema() + " - " + baseLexico.getColumnLexema() + "]");
             rowLexema = baseLexico.getLexema(line.charAt(i));
             if (rowLexema == 6) {
                 if ((int)line.charAt(i) != 101) {
