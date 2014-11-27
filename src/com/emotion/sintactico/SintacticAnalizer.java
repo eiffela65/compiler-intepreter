@@ -57,7 +57,7 @@ public class SintacticAnalizer {
         int lastParenthesis = 0;
         int lastRow = 0;
         int i = 0;
-        System.out.println("************  ANALISIS SINTACTICO  **************");
+        System.out.println("************  ANALISIS SINTACTICO  **************"); 
         while(i < len){
 //            System.out.println("-------------------------------------------------------");
 //            System.out.println(tokens.get(i) + " ----> [" + rowGramar + " - " + Base.getColumn(lexemas.get(i)) + "]");
@@ -92,7 +92,7 @@ public class SintacticAnalizer {
                 }
                 continue;
             }
-            if(!matrix && columnGramar == 19 && lastParenthesis != i){
+            if(!matrix && columnGramar == 19 && lastParenthesis != i){ //porque es parte de la gramatica no de la expresion
 //                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% se agrego un parentesis");
                 parenthesis++;
             }
@@ -110,7 +110,7 @@ public class SintacticAnalizer {
             
 //            System.out.println(lexemas.get(i) + "  -  " + tokens.get(i));
             
-            if(rowGramar == 200)
+            if(rowGramar == 200) //manejo de estatutos y declaraciones
                 rowGramar = getRowByEstatus(tokens.get(i), lastRow);
             
             if(rowGramar == 37)

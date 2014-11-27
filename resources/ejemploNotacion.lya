@@ -2,6 +2,7 @@ class ( ejemploNotacion )
 
 declare A of float;
 
-A=8.40e10;
+A=8.40e+10;
+
 
 endclass

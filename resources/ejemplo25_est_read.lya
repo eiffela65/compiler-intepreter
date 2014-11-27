@@ -4,6 +4,6 @@ class (ejemplo25_est_read)
 
 
 
-read ( A, B, C);
+read ( A, B, C;
 
 endclass
