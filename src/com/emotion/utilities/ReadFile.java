@@ -35,6 +35,7 @@ public class ReadFile {
 
     public static boolean readFile(File file) throws FileException, LexicoException {
         BufferedReader br;
+        String fileName = file.getName();
         try {
             br = new BufferedReader(new FileReader(file.getAbsolutePath()));
             String line = br.readLine();
@@ -59,7 +60,7 @@ public class ReadFile {
         sintactic.setColumnGramar(0);
         sintactic.setLexemas(lexemas);
         sintactic.setTokens(tokens);
-        sintactic.startAnalisis();
+        sintactic.startAnalisis(fileName);
         return status;
     }
 
