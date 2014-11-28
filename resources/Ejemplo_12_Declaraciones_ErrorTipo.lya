@@ -13,4 +13,4 @@ declare C_12 [ 4 ] , D [2] of float;
 declare E_z_1 [ 1 ] , F [9] of char;
 declare G1 [ 11 ] , g2 [22] of string;
 
- endclass
+ endclass endclass

@@ -5,10 +5,7 @@
  */
 package com.emotion.semantic;
 
-/**
- *
- * @author Neftali
- */
+
 public class Symols {
     
     private String name;

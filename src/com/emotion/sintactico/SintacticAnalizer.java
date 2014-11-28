@@ -13,14 +13,14 @@ import com.emotion.semantic.Symols;
 //import org.apache.commons.collections.MultiMap;
 public class SintacticAnalizer {
 
-    private ArrayList<Integer> lexemas = new ArrayList();
-    private ArrayList<String> tokens = new ArrayList();
-    private int rowGramar = 0;
-    private int columnGramar = 0;
-    private int nextRowGramar = 0;
-    private boolean matrix = true;
-    private Stack<Integer> expresion = new Stack<Integer>();
-    private int parenthesis = 0;
+    private ArrayList<Integer> lexemas = new ArrayList(); //numeros de producciones dados por el lexico
+    private ArrayList<String> tokens = new ArrayList();   //nombres tambien dados por el lexico
+    private int rowGramar = 0;  //renglon
+    private int columnGramar = 0;   //columna
+    private int nextRowGramar = 0;  
+    private boolean matrix = true; //bandera para cambio de matrices
+    private Stack<Integer> expresion = new Stack<Integer>(); //pila en la que se guardan los estados que acceden a la matriz expresion
+    private int parenthesis = 0; //para los parentesis
     private com.emotion.semantic.Base semanticBase = new com.emotion.semantic.Base();
     private SemanticAnalizer sematicAalizer = new SemanticAnalizer();
     private Stack<String> variables = new Stack<String>();
@@ -32,7 +32,7 @@ public class SintacticAnalizer {
 
     }
 
-    public void setRowGramar(int rowGramar) {
+    public void setRowGramar(int rowGramar) {  //que comiencen desde 0 para el analisis
         this.rowGramar = rowGramar;
     }
 
@@ -40,7 +40,7 @@ public class SintacticAnalizer {
         this.columnGramar = columnGramar;
     }
 
-    public void setLexemas(ArrayList<Integer> lexemas) {
+    public void setLexemas(ArrayList<Integer> lexemas) { //pasar lexemas 
         this.lexemas = lexemas;
     }
 
@@ -48,15 +48,15 @@ public class SintacticAnalizer {
         return lexemas;
     }
 
-    public void setTokens(ArrayList<String> tokens) {
+    public void setTokens(ArrayList<String> tokens) { //pasar tokens
         this.tokens = tokens;
     }
 
-    public ArrayList<String> getTokens() {
+    public ArrayList<String> getTokens() { //meter tokens en arrayList 
         return tokens;
     }
 
-    public boolean startAnalisis(String fileName) {
+    public boolean startAnalisis(String fileName) { 
         int len = tokens.size();
         boolean status = false;
         String lexema = "";
@@ -75,29 +75,29 @@ public class SintacticAnalizer {
             baseSintactical.setRowGrammar(rowGramar);
             rowGramar = baseSintactical.getNewRow(matrix);
 //            System.out.println("Nuevo estado   " + rowGramar);
-            if (rowGramar == 600) {
+            if (rowGramar == 600) { //ERROR GENERAL
                 lexema = tokens.get(i);
                 break;
             }
-            if (rowGramar == 400) {
+            if (rowGramar == 400) { //si se resolvio la expresion
                 int element = expresion.peek();
-                if (expresion.empty()) {
+                if (expresion.empty()) {   //si la pila vacia se detiene
 //                    System.out.println("Pila de expresiones vacia");
                     break;
                 }
-                if (columnGramar == 20) {
+                if (columnGramar == 20) { //si es un parentesis que cierra se decrementa parentesis
                     parenthesis--;
                     if (element < 301) {
                         i++;
                     }
 //                    System.out.println("@@@@@@@@@@ se quito un parentesis");
                 }
-                if (parenthesis > 0) {
-                    matrix = false;
-                    rowGramar = 1;
+                if (parenthesis > 0) { //suma resta de parentesis para saber si se concluye de evaluar la expresion
+                    matrix = false; //para indicar que se sigue evaluando en la matriz de expresion
+                    rowGramar = 1;  //viene operador relacional aritmetico o logico
                 } else {
-                    matrix = true;
-                    rowGramar = nextRow(expresion.pop());
+                    matrix = true; //termino de evaluar expresion regresar a matriz principal
+                    rowGramar = nextRow(expresion.pop()); 
                 }
                 continue;
             }

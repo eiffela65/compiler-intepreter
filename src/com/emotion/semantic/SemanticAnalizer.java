@@ -9,10 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- *
- * @author Neftali
- */
+
 public class SemanticAnalizer {
 
     public Map<String, Symols> semanticSymbolTable = new HashMap<String, Symols>();

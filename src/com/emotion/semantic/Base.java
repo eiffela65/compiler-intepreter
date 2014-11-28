@@ -8,10 +8,7 @@ package com.emotion.semantic;
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- *
- * @author Neftali
- */
+
 public class Base {
     public Map<Integer,Integer> semanticActions = new HashMap<Integer,Integer>();
     
@@ -22,7 +19,7 @@ public class Base {
     private void initMap(){
         semanticActions.put(3, 900);
         semanticActions.put(6, 901);
-        semanticActions.put(11, 902);
+        semanticActions.put(11, 902); //tipo accion semantica
     }
     
     public int getActionByProduction(int production){
