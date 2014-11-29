@@ -11,7 +11,7 @@ public class Base {
      *
      */
     
-    //COMPLEMENTO PARA EXPRESION DE LA MATRIZ DE PRODUCCIONES
+    //COMPLEMENTO PARA EXPRESION DE LA MATRIZ DE TRANSICIONES
 //   COLUMNA                                        0            1           2      3     4      5      6      7     8      9     10      11         12        13       14           15      16   17   18     19     20   21    22    23    24    25       26       27       28 
 //   PRODUCCION                                    100          101         102    103   104    118    119    120   121    109    110    111        112       113      114          116     115  117  105    122    123  124   125   126   127   106      107      108      128  
 // MATRIZ EXPRESION                ESTADOS       RESERVADA  IDENTIFICADOR  ENTERO  REAL   N.C.  SUMA   RESTA  MULTI  DIVI  ASIGN  IGUAL  MENOR   MENORIGUAL   MAYOR  MAYORIGUAL  DIFERENTE  NOT  AND  OR      (      )    [     ]     ;     ,   CHAR    STRING   COMENT     MOD                       
@@ -21,9 +21,19 @@ public class Base {
                                   /* 3 */      {400,            400,        400,  400,   400,     0,      0,     0,    0,   400,     0,     0,         0,        0,        0,         0,   400,    0,   0,   400,  400,    0,  400,  400, 400,  400,     400,      400,      0}};
     
     
+    //MATRIZ DE PRODUCCIONES
+    
+    //PRODUCCION <PROGRAM>             101 900 123  *aqui iria el numero de la accion semantica*
+    //                     class  (     id    )       <DECLARA>              <ESTATUTOS>         endclass
+    // prod0 = new int [] { 100, 122,   101,  123,     (prod1),             (prod14),(prod15),      100
+    
+    //PRODUCCION <DECLARA>
+    //                     declare    <ID_DIM>   <OTRO_IDDIM>         of    <TIPO>;
+    //prod1 = new int []  {  100      (prod2)    (prod6),(prod7)     100     *AQUI el numero de la produccion TIPO creo que debe llevar el mismo numero de produccion es decir por ejemplo 7 produce int y 7 produce float es decir el mismo numero en la gramatica         
+    
     //   COLUMNA                                    0            1           2      3     4      5      6      7     8      9     10      11         12        13      14           15      16   17   18     19     20   21    22    23    24    25       26       27       28           
     //   PRODUCCION                                100          101         102    103   104    118    119    120   121    109    110    111        112       113     114          116     115  117  105    122    123  124   125   126   127   106      107      108      128    
-    //MATRIZ DE PRODUCCIONES       ESTADOS      RESERVADA  IDENTIFICADOR  ENTERO  REAL   N.C.  SUMA   RESTA  MULTI  DIVI  ASIGN  IGUAL  MENOR   MENORIGUAL   MAYOR  MAYORIGUAL  DIFERENTE  NOT  AND  OR      (      )    [     ]     ;     ,   CHAR    STRING   COMENT     MOD    
+    //MATRIZ DE TRANSICIONES       ESTADOS      RESERVADA  IDENTIFICADOR  ENTERO  REAL   N.C.  SUMA   RESTA  MULTI  DIVI  ASIGN  IGUAL  MENOR   MENORIGUAL   MAYOR  MAYORIGUAL  DIFERENTE  NOT  AND  OR      (      )    [     ]     ;     ,   CHAR    STRING   COMENT     MOD    
     public int[][] grammar =       /* 0 */     {{1,            600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
                                    /* 1 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,    2,   600,  600,  600,  600,  600,  600,     600,     600,    600},
                                    /* 2 */     {600,            3,         600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},

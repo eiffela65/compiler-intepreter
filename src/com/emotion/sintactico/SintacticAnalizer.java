@@ -60,22 +60,22 @@ public class SintacticAnalizer {
         int len = tokens.size();
         boolean status = false;
         String lexema = "";
-        Base baseSintactical = new Base();
+        Base baseSintactical = new Base(); 
         int lastParenthesis = 0;
         int lastRow = 0;
         int i = 0;
         int semanticAction = 0;
         System.out.println("************  ANALISIS SINTACTICO  **************");
-        while (i < len) {
+        while (i < len) { //para que recorra el programa tomando los tokens mientras que no sean 0
 //            System.out.println("-------------------------------------------------------");
 //            System.out.println(tokens.get(i) + " ----> [" + rowGramar + " - " + Base.getColumn(lexemas.get(i)) + "]");
 
             columnGramar = Base.getColumn(lexemas.get(i));
             baseSintactical.setColumnGrammar(columnGramar);
             baseSintactical.setRowGrammar(rowGramar);
-            rowGramar = baseSintactical.getNewRow(matrix);
+            rowGramar = baseSintactical.getNewRow(matrix); 
 //            System.out.println("Nuevo estado   " + rowGramar);
-            if (rowGramar == 600) { //ERROR GENERAL
+            if (rowGramar == 600) { //ERROR 
                 lexema = tokens.get(i);
                 break;
             }
@@ -92,7 +92,7 @@ public class SintacticAnalizer {
                     }
 //                    System.out.println("@@@@@@@@@@ se quito un parentesis");
                 }
-                if (parenthesis > 0) { //suma resta de parentesis para saber si se concluye de evaluar la expresion
+                if (parenthesis > 0) { //si parenthesis es mayor aun no termina de evaluar la expresion                                                suma resta de parentesis para saber si se concluye de evaluar la expresion
                     matrix = false; //para indicar que se sigue evaluando en la matriz de expresion
                     rowGramar = 1;  //viene operador relacional aritmetico o logico
                 } else {
@@ -105,16 +105,16 @@ public class SintacticAnalizer {
 //                System.out.println("%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% se agrego un parentesis");
                 parenthesis++;
             }
-            if (rowGramar > 299 && rowGramar < 400) {
-                matrix = false;
-                expresion.push(rowGramar);
-                rowGramar = 0;
-                if (columnGramar == 19) {
-                    parenthesis++;
+            if (rowGramar > 299 && rowGramar < 400) { //aqui se pasa a la matriz expresion
+                matrix = false; //bandera en false para que se lea la matriz de expresion
+                expresion.push(rowGramar); //metemos en la pila la produccion de entrada a expresion que puede ser 300 301
+                rowGramar = 0; //empezar en el renglon 0
+                if (columnGramar == 19) { //si se encuentra con un parentesis que abre 
+                    parenthesis++; //aumenta parentesis para el control de los mismos
 //                    System.out.println("############### se agrego un parentesis");
                     lastParenthesis = i;
                 }
-                continue;
+                continue; //porque los parentesis pueden ser infinitos
             }
 
 //            System.out.println(lexemas.get(i) + "  -  " + tokens.get(i));
@@ -123,7 +123,7 @@ public class SintacticAnalizer {
                 rowGramar = getRowByEstatus(tokens.get(i), lastRow);
             }
 
-            if (rowGramar == 37) {
+            if (rowGramar == 37) { //encontro un endclass
                 status = true;
             }
             lastRow = rowGramar;
@@ -151,19 +151,19 @@ public class SintacticAnalizer {
     private int nextRow(int typeExpresion) {
         int row = 0;
         switch (typeExpresion) {
-            case 300:
+            case 300: //ASIGNACION
                 row = 18;
                 break;
-            case 301:
+            case 301: //ASIGNACION [ ]
                 row = 16;
                 break;
-            case 302:
+            case 302:  //IF
                 row = 21;
                 break;
-            case 303:
+            case 303:  //WHILE
                 row = 25;
                 break;
-            case 304:
+            case 304: //WRITE
                 row = 34;
                 break;
         }
