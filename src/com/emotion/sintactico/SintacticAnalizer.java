@@ -230,7 +230,7 @@ public class SintacticAnalizer {
     }
 
     private boolean runSemanticAction(int semanticAction, String value, String fileName) {
-        System.out.println("Accion: " + semanticAction + "  Valor a analizar: " + value + "  fileName " + fileName);
+//        System.out.println("Accion: " + semanticAction + "  Valor a analizar: " + value + "  fileName " + fileName);
         boolean status = true;
         Symols symbol = new Symols();
         switch (semanticAction) {
