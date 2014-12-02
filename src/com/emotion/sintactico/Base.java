@@ -5,193 +5,257 @@
  */
 package com.emotion.sintactico;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 public class Base {
 
-    /**
-     *
-     */
-    
-    //COMPLEMENTO PARA EXPRESION DE LA MATRIZ DE TRANSICIONES
-//   COLUMNA                                        0            1           2      3     4      5      6      7     8      9     10      11         12        13       14           15      16   17   18     19     20   21    22    23    24    25       26       27       28 
-//   PRODUCCION                                    100          101         102    103   104    118    119    120   121    109    110    111        112       113      114          116     115  117  105    122    123  124   125   126   127   106      107      108      128  
-// MATRIZ EXPRESION                ESTADOS       RESERVADA  IDENTIFICADOR  ENTERO  REAL   N.C.  SUMA   RESTA  MULTI  DIVI  ASIGN  IGUAL  MENOR   MENORIGUAL   MAYOR  MAYORIGUAL  DIFERENTE  NOT  AND  OR      (      )    [     ]     ;     ,   CHAR    STRING   COMENT     MOD                       
-    public int[][] expresion =    /* 0 */      {{600,             3,          1,    1,     1,   600,    600,   600,  600,   600,   600,   600,       600,      600,      600,       600,     2,  600, 600,     0,    0,  600,  400,  600,   0,    1,       1,      600,     600},
-                                  /* 1 */      {400,            400,        400,  400,   400,     0,      0,     0,    0,   400,     0,     0,         0,        0,        0,         0,   400,    0,   0,   400,  400,  400,  400,  400, 400,  400,     400,      400,       0},
-                                  /* 2 */      {600,              3,          1,    1,     1,   600,    600,   600,  600,   600,   600,   600,       600,      600,      600,       600,   600,  600, 600,   600,  600,  600,  600,  600, 600,    1,       1,      600,     600},
-                                  /* 3 */      {400,            400,        400,  400,   400,     0,      0,     0,    0,   400,     0,     0,         0,        0,        0,         0,   400,    0,   0,   400,  400,    0,  400,  400, 400,  400,     400,      400,      0}};
-    
-    
-    //MATRIZ DE PRODUCCIONES
-    
-    //PRODUCCION <PROGRAM>             101 900 123  *aqui iria el numero de la accion semantica*
-    //                     class  (     id    )       <DECLARA>              <ESTATUTOS>         endclass
-    // prod0 = new int [] { 100, 122,   101,  123,     (prod1),             (prod14),(prod15),      100
-    
-    //PRODUCCION <DECLARA>
-    //                     declare    <ID_DIM>   <OTRO_IDDIM>         of    <TIPO>;
-    //prod1 = new int []  {  100      (prod2)    (prod6),(prod7)     100     *AQUI el numero de la produccion TIPO creo que debe llevar el mismo numero de produccion es decir por ejemplo 7 produce int y 7 produce float es decir el mismo numero en la gramatica         
-    
-    //   COLUMNA                                    0            1           2      3     4      5      6      7     8      9     10      11         12        13      14           15      16   17   18     19     20   21    22    23    24    25       26       27       28           
-    //   PRODUCCION                                100          101         102    103   104    118    119    120   121    109    110    111        112       113     114          116     115  117  105    122    123  124   125   126   127   106      107      108      128    
-    //MATRIZ DE TRANSICIONES       ESTADOS      RESERVADA  IDENTIFICADOR  ENTERO  REAL   N.C.  SUMA   RESTA  MULTI  DIVI  ASIGN  IGUAL  MENOR   MENORIGUAL   MAYOR  MAYORIGUAL  DIFERENTE  NOT  AND  OR      (      )    [     ]     ;     ,   CHAR    STRING   COMENT     MOD    
-    public int[][] grammar =       /* 0 */     {{1,            600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 1 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,    2,   600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 2 */     {600,            3,         600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 3 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,   4,   600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 4 */     {200,            13,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 5 */     {600,            6,         600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 6 */     {10,            600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,   7,   600,  600,   5,   600,     600,     600,    600},
-                                   /* 7 */     {600,           600,         8,     600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                   /* 8 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,   9,   600,  600,  600,     600,     600,    600},
-                                   /* 9 */     {10,            600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,   5,   600,     600,     600,    600},
-                                  /* 10 */     {11,            600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 11 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 12 */     {200,           13,         600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 13 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,   14,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,   15,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 14 */     {300,           300,        300,    300,  300,  300,    300,   300,   300,  300,   300,   300,      300,       300,     300,        300,    300, 300, 300,   300,  300,  300,  300,  300,  300,  300,     300,     300,    300},
-                                  /* 15 */     {301,           301,        301,    301,  301,  301,    301,   301,   301,  301,   301,   301,      301,       301,     301,        301,    301, 301, 301,   301,  301,  301,  301,  301,  301,  301,     301,     301,    301},
-                                  /* 16 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,   17,  600,   15,  600,     600,     600,    600},
-                                  /* 17 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,   14,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 18 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 19 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,    20,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 20 */     {302,           302,        302,    302,  302,  302,    302,   302,   302,  302,   302,   302,      302,       302,     302,        302,    302, 302, 302,   302,  302,  302,  302,  302,  302,  302,     302,     302,    302},
-                                  /* 21 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,   12,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 22 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 23 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,    24,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 24 */     {303,           303,        303,    303,  303,  303,    303,   303,   303,  303,   303,   303,      303,       303,     303,        303,    303, 303, 303,   303,  303,  303,  303,  303,  303,  303,     303,     303,    303},
-                                  /* 25 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,   12,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 26 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 27 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 28 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,    29,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 29 */     {600,            30,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 30 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,   31,  600,  600,  600,   29,  600,     600,     600,    600},
-                                  /* 31 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 32 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,    33,  600,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 33 */     {304,           304,        304,    304,  304,  304,    304,   304,   304,  304,   304,   304,      304,       304,     304,        304,    304, 304, 304,   304,  304,  304,  304,  304,  304,  304,     304,     304,    304},
-                                  /* 34 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,   35,  600,  600,  600,  600,  600,     600,     600,    600},
-                                  /* 35 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,   36,  600,  600,   12,   33,  600,     600,     600,    600},
-                                  /* 36 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,   12,  600,  600,     600,     600,    600},
-                                  /* 37 */     {600,           600,        600,    600,  600,  600,    600,   600,   600,  600,   600,   600,      600,       600,     600,        600,    600, 600, 600,   600,  600,  600,  600,  600,  600,  600,     600,     600,    600}};
+    List<List> producciones = new ArrayList();
 
-    private int rowGrammar = 0;
-    private int columnGrammar = 0;
-
-    public void setRowGrammar(int row) {
-        this.rowGrammar = row;
+    public Base() {
+        initListas();
     }
 
-    public int getRowGrammar() {
-        return rowGrammar;
+    private void initListas() {
+        //<PROGRAM>  → class (id) <DECLARA> <ESTATUTOS> endclass
+        List<Integer> prod0 = Arrays.asList(100, 122, 101, 123, 1, 16, 100);
+        producciones.add(prod0);
+        //<DECLARA> → declare <B>  of  <TIPO> ; <AUX> 
+        List<Integer> prod1 = Arrays.asList(100, 3, 100, 10, 126, 14);
+        producciones.add(prod1);
+        //<DECLARA> → €     
+        List<Integer> prod2 = Arrays.asList();
+//<B> → <ID_DIM> <AUX2>
+        List<Integer> prod3 = Arrays.asList(4, 8);
+
+//<ID_DIM> → id <C>
+        List<Integer> prod4 = Arrays.asList(101, 5);
+
+//<C> → [cteentera] <AUX3>     
+        List<Integer> prod5 = Arrays.asList(124, 102, 125, 6);
+
+//<AUX3> → <C>
+        List<Integer> prod6 = Arrays.asList(5);
+
+//<AUX3> → €     
+        List<Integer> prod7 = Arrays.asList();
+
+//<AUX2> → <B>   
+        List<Integer> prod8 = Arrays.asList(3);
+
+//<AUX2> → €     
+        List<Integer> prod9 = Arrays.asList();
+
+//<TIPO> →  int
+        List<Integer> prod10 = Arrays.asList(100);
+
+//12.	<TIPO> →  float (11)
+        List<Integer> prod11 = Arrays.asList(100);
+
+//13.	<TIPO> →  carácter  (12)
+        List<Integer> prod12 = Arrays.asList(100);
+
+//14.	<TIPO> →  string  (13)
+        List<Integer> prod13 = Arrays.asList(100);
+
+//15.	<AUX> →  <DECLARA>  (14)
+        List<Integer> prod14 = Arrays.asList(1);
+
+//16.	<AUX> → €  (15)
+        List<Integer> prod15 = Arrays.asList();
+
+//17.	<ESTATUTOS> →  <E> ; <AUX4> (16)
+        List<Integer> prod16 = Arrays.asList(18, 126, 24);
+
+//18.	<ESTATUTOS> →  €  (17)
+        List<Integer> prod17 = Arrays.asList();
+
+//19.	<E> →  <EST_ASIG> (18)
+        List<Integer> prod18 = Arrays.asList(26);
+
+//20.	<E> →  <EST_IF> (19)
+        List<Integer> prod19 = Arrays.asList(32);
+
+//21.	<E> →  <EST_WHILE> (20)
+        List<Integer> prod20 = Arrays.asList(35);
+
+//22.	<E> →  <EST_DO> (21)
+        List<Integer> prod21 = Arrays.asList(36);
+
+//23.	<E> →  <EST_READ> (22)
+        List<Integer> prod22 = Arrays.asList(37);
+
+//24.	<E> →  <EST_WRITE>  (23)
+        List<Integer> prod23 = Arrays.asList(41);
+
+//25.	<AUX4> →  <ESTATUTOS> (24)
+        List<Integer> prod24 = Arrays.asList(16);
+
+//26.	<AUX4> →  € (25)
+        List<Integer> prod25 = Arrays.asList();
+
+//27.	<EST_ASIG> →  <ASIG> = <EXPR> (26)
+        List<Integer> prod26 = Arrays.asList(27, 109, 45);
+
+//28.	<ASIG> →  id <DIM_ASIG> (27)
+        List<Integer> prod27 = Arrays.asList(101, 28);
+
+//29.	<DIM_ASIG> →  [<EXPR> <AUX5>] (28)
+        List<Integer> prod28 = Arrays.asList(124, 45, 30, 125);
+
+//30.	<DIM_ASIG> →  € (29)
+        List<Integer> prod29 = Arrays.asList();
+
+//31.	<AUX5> →  ,  <EXPR> <AUX5> (30)
+        List<Integer> prod30 = Arrays.asList(127, 45, 30);
+
+//32.	<AUX5> →  €  (31)
+        List<Integer> prod31 = Arrays.asList();
+
+//33.	<EST_IF> →  if(<EXPR>) <ESTATUTOS> <H> endif (32)
+        List<Integer> prod32 = Arrays.asList(100, 122, 45, 123, 16, 33, 100);
+
+//34.	<H> →  else <ESTATUTOS> (33)
+        List<Integer> prod33 = Arrays.asList(100, 16);
+
+//35.	<H> →  € (34)
+        List<Integer> prod34 = Arrays.asList();
+
+//36.	<EST_WHILE> →  while (<EXPR>) <ESTATUTOS> endwhile (35)
+        List<Integer> prod35 = Arrays.asList(100, 122, 45, 123, 16, 100);
+
+//37.	<EST_DO> → do <ESTATUTOS> dowhile (<EXPR>) enddo (36)
+        List<Integer> prod36 = Arrays.asList(100, 16, 100, 122, 45, 123, 100);
+
+//38.	<EST_READ> →  read (<I>) (37)
+        List<Integer> prod37 = Arrays.asList(100, 122, 38, 123);
+
+//39.	<I> →  id <AUX6> (38)
+        List<Integer> prod38 = Arrays.asList(101, 39);
+
+//40.	<AUX6> →  , <I>  (39)
+        List<Integer> prod39 = Arrays.asList(127, 38);
+
+//41.	<AUX6> →  €  (40)
+        List<Integer> prod40 = Arrays.asList();
+
+//42.	<EST_WRITE> →  write (<J>)  (41)
+        List<Integer> prod41 = Arrays.asList(100, 122, 42, 123);
+
+//43.	<J> →  <EXPR> <AUX7>  (42)
+        List<Integer> prod42 = Arrays.asList(45, 43);
+
+//44.	<AUX7> →  , <J>  (43)
+        List<Integer> prod43 = Arrays.asList(127, 42);
+
+//45.	<AUX7> →  €  (44)
+        List<Integer> prod44 = Arrays.asList();
+
+//46.	<EXPR> →  <EXPR2> <AUX8> (45)
+        List<Integer> prod45 = Arrays.asList(48, 46);
+
+//47.	<AUX8> →  || <EXPR2> <AUX8> (46)
+        List<Integer> prod46 = Arrays.asList(105, 48, 46);
+
+//48.	<AUX8> →  € (47)
+        List<Integer> prod47 = Arrays.asList();
+
+//49.	<EXPR2> →  <EXP3> <AUX9> (48)
+        List<Integer> prod48 = Arrays.asList(51, 49);
+
+//50.	<AUX9> →  && <EXP3> <AUX9> (49)
+        List<Integer> prod49 = Arrays.asList(117, 51, 49);
+
+//51.	<AUX9> →  € (50)
+        List<Integer> prod50 = Arrays.asList();
+
+//52.	<EXPR3> →  <NOT> <EXPR4> (51)
+        List<Integer> prod51 = Arrays.asList(52, 54);
+
+//53.	<NOT> → ! (52)
+        List<Integer> prod52 = Arrays.asList(115);
+
+//54.	<NOT> → € (53)
+        List<Integer> prod53 = Arrays.asList();
+
+//55.	<EXPR4> →  <EXPR5> <M> (54)
+        List<Integer> prod54 = Arrays.asList(63, 55);
+
+//56.	<M> →  <OPREL> <EXPR5> (55)
+        List<Integer> prod55 = Arrays.asList(57, 63);
+
+//57.	<M> → € (56)
+        List<Integer> prod56 = Arrays.asList();
+
+//58.	<OPREL> → ==  (57)
+        List<Integer> prod57 = Arrays.asList(110);
+
+//59.	<OPREL> → !=  (58)
+        List<Integer> prod58 = Arrays.asList(116);
+
+//60.	<OPREL> → <  (59)
+        List<Integer> prod59 = Arrays.asList(111);
+
+//61.	<OPREL> → <=  (60)
+        List<Integer> prod60 = Arrays.asList(112);
+
+//62.	<OPREL> → >  (61)
+        List<Integer> prod61 = Arrays.asList(113);
+
+//63.	<OPREL> → >=  (62)
+        List<Integer> prod62 = Arrays.asList(114);
+
+//64.	<EXPR5> →  <TERM> <AUX10> (63)
+        List<Integer> prod63 = Arrays.asList(67, 64);
+
+//65.	<AUX10> →  + <EXPR5>  (64)
+        List<Integer> prod64 = Arrays.asList(118, 63);
+
+//66.	<AUX10> → - <EXPR5>  (65)
+        List<Integer> prod65 = Arrays.asList(63);
+
+//67.	<AUX10> →  €  (66)
+        List<Integer> prod66 = Arrays.asList();
+
+//68.	<TERM> →  <FACT> <AUX11>  (67)
+        List<Integer> prod67 = Arrays.asList(72, 68);
+
+//69.	<AUX11> →  * <TERM>  (68)
+        List<Integer> prod68 = Arrays.asList(120, 67);
+
+//70.	<AUX11> →  / <TERM>   (69)
+        List<Integer> prod69 = Arrays.asList(121, 67);
+
+//71.	<AUX11> →  % <TERM>  (70)
+        List<Integer> prod70 = Arrays.asList(128, 67);
+
+//72.	<AUX11> →  €  (71)
+        List<Integer> prod71 = Arrays.asList();
+
+//73.	<FACT> →  <ASIG>  (72)
+        List<Integer> prod72 = Arrays.asList(27);
+
+//74.	<FACT> →  cteentera  (73)
+        List<Integer> prod73 = Arrays.asList(102);
+
+//75.	<FACT> →  ctereal  (74)
+        List<Integer> prod74 = Arrays.asList(103);
+
+//76.	<FACT> →  ctenotacion  (75)
+        List<Integer> prod75 = Arrays.asList(104);
+
+//77.	<FACT> →  ctecaracter  (76)
+        List<Integer> prod76 = Arrays.asList(106);
+
+//78.	<FACT> →  ctestring  (77)
+        List<Integer> prod77 = Arrays.asList(107);
+
+//79.	<FACT> →  ( <EXPR> )  (78)
+        List<Integer> prod78 = Arrays.asList(122, 45, 123);
     }
 
-    public void setColumnGrammar(int row) {
-        this.columnGrammar = row;
+    public List getPoduccionesByIndex(int index){
+        return producciones.get(index);
     }
-
-    public int getColumnGrammar() {
-        return columnGrammar;
-    }
-
-    public int getNewRow(boolean matrixType) { //cambia de la matriz principal a la de expresion
-//        System.out.println("Matriz = " + matrixType);
-        if(matrixType)
-            return grammar[rowGrammar][columnGrammar];
-        else
-            return expresion[rowGrammar][columnGrammar];
-    }
-    
-    public static int getColumn(int lexema){ //SE COMPARA DEPENDIENDO DEL LEXEMA LEIDO CON EL EXCEL PARA ASIGNAR LA COLUMNA
-        int column = 0;
-        switch(lexema){
-            case 100:
-                column = 0;
-                break;
-            case 101:
-                column = 1;
-                break;
-            case 102:
-                column = 2;
-                break;
-            case 103:
-                column = 3;
-                break;
-            case 104:
-                column = 4;
-                break;
-            case 105:
-                column = 18;
-                break;
-            case 106:
-                column = 25;
-                break;
-            case 107:
-                column = 26;
-                break;
-            case 108:
-                column = 27;
-                break;
-            case 109:
-                column = 9;
-                break;
-            case 110:
-                column = 10;
-                break;
-            case 111:
-                column = 11;
-                break;
-            case 112:
-                column = 12;
-                break;
-            case 113:
-                column = 13;
-                break;
-            case 114:
-                column = 14;
-                break;
-            case 115:
-                column = 16;
-                break;
-            case 116:
-                column = 15;
-                break;
-            case 117:
-                column = 17;
-                break;
-            case 118:
-                column = 5;
-                break;
-            case 119:
-                column = 6;
-                break;
-            case 120:
-                column = 7;
-                break;
-            case 121:
-                column = 8;
-                break;
-            case 122:
-                column = 19;
-                break;
-            case 123:
-                column = 20;
-                break;
-            case 124:
-                column = 21;
-                break;
-            case 125:
-                column = 22;
-                break;
-            case 126:
-                column = 23;
-                break;
-            case 127:
-                column = 24;
-                break;
-            case 128:
-                column = 28;
-                break;
-        }
-        return column;
-    }
-
 }
