@@ -11,15 +11,17 @@ import java.util.List;
 
 public class Base {
 
-    List<List> producciones = new ArrayList();
+    private List<List> producciones = new ArrayList();
 
     public Base() {
         initListas();
     }
-
+    
+    public int [][] gramar = {};
+    
     private void initListas() {
         //<PROGRAM>  → class (id) <DECLARA> <ESTATUTOS> endclass
-        List<Integer> prod0 = Arrays.asList(100, 122, 101, 123, 1, 16, 100);
+        List<Integer> prod0 = Arrays.asList(100, 122, 101, 123, 300, 300, 100);
         producciones.add(prod0);
         //<DECLARA> → declare <B>  of  <TIPO> ; <AUX> 
         List<Integer> prod1 = Arrays.asList(100, 3, 100, 10, 126, 14);
@@ -257,5 +259,157 @@ public class Base {
 
     public List getPoduccionesByIndex(int index){
         return producciones.get(index);
+    }
+       
+    public int getColumnByToken(int lexema, String token){
+        int column = 600;
+        switch(column){
+            case 100:
+                switch(token){
+                    case "class":
+                        column = 0;
+                        break;
+                    case "endclass":
+                        column = 0;
+                        break;
+                    case "int":
+                        column = 0;
+                        break;
+                    case "float":
+                        column = 0;
+                        break;
+                    case "char":
+                        column = 0;
+                        break;
+                    case "string":
+                        column = 0;
+                        break;
+                    case "declare":
+                        column = 0;
+                        break;
+                    case "of":
+                        column = 0;
+                        break;
+                    case "if":
+                        column = 0;
+                        break;
+                    case "else":
+                        column = 0;
+                        break;
+                    case "endif":
+                        column = 0;
+                        break;
+                    case "while":
+                        column = 0;
+                        break;
+                    case "endwhile":
+                        column = 0;
+                        break;
+                    case "do":
+                        column = 0;
+                        break;
+                    case "dowhile":
+                        column = 0;
+                        break;
+                    case "enddo":
+                        column = 0;
+                        break;
+                    case "read":
+                        column = 0;
+                        break;
+                    case "write":
+                        column = 0;
+                        break;
+                    default:
+                        column = 600;
+                        break;
+                }
+                break;
+            case 101:
+                column = 0;
+                break;
+            case 103:
+                column = 0;
+                break;
+            case 104:
+                column = 0;
+                break;
+            case 105:
+                column = 0;
+                break;
+            case 106:
+                column = 0;
+                break;
+            case 107:
+                column = 0;
+                break;
+            case 108:
+                column = 0;
+                break;
+            case 109:
+                column = 0;
+                break;
+            case 110:
+                column = 0;
+                break;
+            case 111:
+                column = 0;
+                break;
+            case 112:
+                column = 0;
+                break;
+            case 113:
+                column = 0;
+                break;
+            case 114:
+                column = 0;
+                break;
+            case 115:
+                column = 0;
+                break;
+            case 116:
+                column = 0;
+                break;
+            case 117:
+                column = 0;
+                break;
+            case 118:
+                column = 0;
+                break;
+            case 119:
+                column = 0;
+                break;
+            case 120:
+                column = 0;
+                break;
+            case 121:
+                column = 0;
+                break;
+            case 122:
+                column = 0;
+                break;
+            case 123:
+                column = 0;
+                break;
+            case 124:
+                column = 0;
+                break;
+            case 125:
+                column = 0;
+                break;
+            case 126:
+                column = 0;
+                break;
+            case 127:
+                column = 0;
+                break;
+            case 128:
+                column = 0;
+                break;
+            default:
+                column = 600;
+                break;
+        }
+        return column;
     }
 }
