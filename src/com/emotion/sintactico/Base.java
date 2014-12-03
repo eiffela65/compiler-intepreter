@@ -21,7 +21,7 @@ public class Base {
     
     private void initListas() {
         //<PROGRAM>  → class (id) <DECLARA> <ESTATUTOS> endclass
-        List<Integer> prod0 = Arrays.asList(100, 122, 101, 123, 300, 300, 100);
+        List<Integer> prod0 = Arrays.asList(100, 122, 101, 123, 1, 100);
         producciones.add(prod0);
         //<DECLARA> → declare <B>  of  <TIPO> ; <AUX> 
         List<Integer> prod1 = Arrays.asList(100, 3, 100, 10, 126, 14);
