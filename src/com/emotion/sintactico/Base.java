@@ -17,244 +17,256 @@ public class Base {
         initListas();
     }
     
-    public int [][] gramar = {};
+    public int [][] gramar = {{600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,0,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600},
+{2,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,2,1,600,600,600,600,600,600,600,600,600,600,2,2,2,2,2,2,2,600,2,2,600},
+{600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600},
+{4,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600},
+{9,600,600,600,600,600,5,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,79,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600},
+{7,600,600,600,600,600,6,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,7,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600},
+{3,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,9,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600},
+{600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,10,11,12,13,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600,600}};
     
     private void initListas() {
-        //<PROGRAM>  → class (id) <DECLARA> <ESTATUTOS> endclass
-        List<Integer> prod0 = Arrays.asList(100, 122, 101, 123, 1, 100);
-        producciones.add(prod0);
-        //<DECLARA> → declare <B>  of  <TIPO> ; <AUX> 
-        List<Integer> prod1 = Arrays.asList(100, 3, 100, 10, 126, 14);
-        producciones.add(prod1);
-        //<DECLARA> → €     
-        List<Integer> prod2 = Arrays.asList();
+//<PROGRAM>  → class (id) <DECLARA> <ESTATUTOS> endclass
+List <Integer> prod0 = Arrays.asList(100,122,101,123,1,9,100);
+producciones.add(prod0);
+//<DECLARA> → declare <B>  of  <TIPO> ; <AUX>   
+List <Integer> prod1 = Arrays.asList(100,2,100,7,126,8);
+producciones.add(prod1);
+//<DECLARA> → €     
+List <Integer> prod2 = Arrays.asList();
+producciones.add(prod2);
 //<B> → <ID_DIM> <AUX2>
-        List<Integer> prod3 = Arrays.asList(4, 8);
-
+List <Integer> prod3 = Arrays.asList(3,6);
+producciones.add(prod3);
 //<ID_DIM> → id <C>
-        List<Integer> prod4 = Arrays.asList(101, 5);
-
+List <Integer> prod4 = Arrays.asList(101,4);
+producciones.add(prod4);
 //<C> → [cteentera] <AUX3>     
-        List<Integer> prod5 = Arrays.asList(124, 102, 125, 6);
-
+List <Integer> prod5 = Arrays.asList(124,102,125,5);
+producciones.add(prod5);
 //<AUX3> → <C>
-        List<Integer> prod6 = Arrays.asList(5);
-
+List <Integer> prod6 = Arrays.asList(4);
+producciones.add(prod6);
 //<AUX3> → €     
-        List<Integer> prod7 = Arrays.asList();
-
+List <Integer> prod7 = Arrays.asList();
+producciones.add(prod7);
 //<AUX2> → <B>   
-        List<Integer> prod8 = Arrays.asList(3);
-
+List <Integer> prod8= Arrays.asList(2);
+producciones.add(prod8);
 //<AUX2> → €     
-        List<Integer> prod9 = Arrays.asList();
-
+List <Integer> prod9= Arrays.asList();
+producciones.add(prod9);
 //<TIPO> →  int
-        List<Integer> prod10 = Arrays.asList(100);
-
+List <Integer> prod10 = Arrays.asList(100);
+producciones.add(prod10);
 //12.	<TIPO> →  float (11)
-        List<Integer> prod11 = Arrays.asList(100);
-
+List <Integer> prod11= Arrays.asList(100);
+producciones.add(prod11);
 //13.	<TIPO> →  carácter  (12)
-        List<Integer> prod12 = Arrays.asList(100);
-
+List <Integer> prod12= Arrays.asList(100);
+producciones.add(prod12);
 //14.	<TIPO> →  string  (13)
-        List<Integer> prod13 = Arrays.asList(100);
-
+List <Integer> prod13 = Arrays.asList(100);
+producciones.add(prod13);
 //15.	<AUX> →  <DECLARA>  (14)
-        List<Integer> prod14 = Arrays.asList(1);
-
+List <Integer> prod14 = Arrays.asList(1);
+producciones.add(prod14);
 //16.	<AUX> → €  (15)
-        List<Integer> prod15 = Arrays.asList();
-
+List <Integer> prod15 = Arrays.asList();
+producciones.add(prod15);
 //17.	<ESTATUTOS> →  <E> ; <AUX4> (16)
-        List<Integer> prod16 = Arrays.asList(18, 126, 24);
-
+List <Integer> prod16 = Arrays.asList(10,126,11);
+producciones.add(prod16);
 //18.	<ESTATUTOS> →  €  (17)
-        List<Integer> prod17 = Arrays.asList();
-
+List <Integer> prod17 = Arrays.asList();
+producciones.add(prod17);
 //19.	<E> →  <EST_ASIG> (18)
-        List<Integer> prod18 = Arrays.asList(26);
-
+List <Integer> prod18 = Arrays.asList(12);
+producciones.add(prod18);
 //20.	<E> →  <EST_IF> (19)
-        List<Integer> prod19 = Arrays.asList(32);
-
+List <Integer> prod19 = Arrays.asList(16);
+producciones.add(prod19);
 //21.	<E> →  <EST_WHILE> (20)
-        List<Integer> prod20 = Arrays.asList(35);
-
+List <Integer> prod20 = Arrays.asList(18);
+producciones.add(prod20);
 //22.	<E> →  <EST_DO> (21)
-        List<Integer> prod21 = Arrays.asList(36);
-
+List <Integer> prod21 = Arrays.asList(19);
+producciones.add(prod21);
 //23.	<E> →  <EST_READ> (22)
-        List<Integer> prod22 = Arrays.asList(37);
-
+List <Integer> prod22 = Arrays.asList(20);
+producciones.add(prod22);
 //24.	<E> →  <EST_WRITE>  (23)
-        List<Integer> prod23 = Arrays.asList(41);
-
+List <Integer> prod23 = Arrays.asList(23);
+producciones.add(prod23);
 //25.	<AUX4> →  <ESTATUTOS> (24)
-        List<Integer> prod24 = Arrays.asList(16);
-
+List <Integer> prod24 = Arrays.asList(9);
+producciones.add(prod24);
 //26.	<AUX4> →  € (25)
-        List<Integer> prod25 = Arrays.asList();
-
+List <Integer> prod25 = Arrays.asList();
+producciones.add(prod25);
 //27.	<EST_ASIG> →  <ASIG> = <EXPR> (26)
-        List<Integer> prod26 = Arrays.asList(27, 109, 45);
-
+List <Integer> prod26 = Arrays.asList(13,109,26);
+producciones.add(prod26);
 //28.	<ASIG> →  id <DIM_ASIG> (27)
-        List<Integer> prod27 = Arrays.asList(101, 28);
-
+List <Integer> prod27 = Arrays.asList(101,14);
+producciones.add(prod27);
 //29.	<DIM_ASIG> →  [<EXPR> <AUX5>] (28)
-        List<Integer> prod28 = Arrays.asList(124, 45, 30, 125);
-
+List <Integer> prod28 = Arrays.asList(124,26,15,125);
+producciones.add(prod28);
 //30.	<DIM_ASIG> →  € (29)
-        List<Integer> prod29 = Arrays.asList();
-
+List <Integer> prod29 = Arrays.asList();
+producciones.add(prod29);
 //31.	<AUX5> →  ,  <EXPR> <AUX5> (30)
-        List<Integer> prod30 = Arrays.asList(127, 45, 30);
-
+List <Integer> prod30 = Arrays.asList(127,26,15);
+producciones.add(prod30);
 //32.	<AUX5> →  €  (31)
-        List<Integer> prod31 = Arrays.asList();
-
+List <Integer> prod31 = Arrays.asList();
+producciones.add(prod31);
 //33.	<EST_IF> →  if(<EXPR>) <ESTATUTOS> <H> endif (32)
-        List<Integer> prod32 = Arrays.asList(100, 122, 45, 123, 16, 33, 100);
-
+List <Integer> prod32 = Arrays.asList(100,122,26,123,9,17,100);
+producciones.add(prod32);
 //34.	<H> →  else <ESTATUTOS> (33)
-        List<Integer> prod33 = Arrays.asList(100, 16);
-
+List <Integer> prod33 = Arrays.asList(100,9);
+producciones.add(prod33);
 //35.	<H> →  € (34)
-        List<Integer> prod34 = Arrays.asList();
-
+List <Integer> prod34 = Arrays.asList();
+producciones.add(prod34);
 //36.	<EST_WHILE> →  while (<EXPR>) <ESTATUTOS> endwhile (35)
-        List<Integer> prod35 = Arrays.asList(100, 122, 45, 123, 16, 100);
-
+List <Integer> prod35 = Arrays.asList(100,122,26,123,9,100);
+producciones.add(prod35);
 //37.	<EST_DO> → do <ESTATUTOS> dowhile (<EXPR>) enddo (36)
-        List<Integer> prod36 = Arrays.asList(100, 16, 100, 122, 45, 123, 100);
-
+List <Integer> prod36 = Arrays.asList(100,9,100,122,26,123,100);
+producciones.add(prod36);
 //38.	<EST_READ> →  read (<I>) (37)
-        List<Integer> prod37 = Arrays.asList(100, 122, 38, 123);
-
+List <Integer> prod37 = Arrays.asList(100,122,21,123);
+producciones.add(prod37);
 //39.	<I> →  id <AUX6> (38)
-        List<Integer> prod38 = Arrays.asList(101, 39);
-
+List <Integer> prod38 = Arrays.asList(101,22);
+producciones.add(prod38);
 //40.	<AUX6> →  , <I>  (39)
-        List<Integer> prod39 = Arrays.asList(127, 38);
-
+List <Integer> prod39 = Arrays.asList(127,21);
+producciones.add(prod39);
 //41.	<AUX6> →  €  (40)
-        List<Integer> prod40 = Arrays.asList();
-
+List <Integer> prod40 = Arrays.asList();
+producciones.add(prod40);
 //42.	<EST_WRITE> →  write (<J>)  (41)
-        List<Integer> prod41 = Arrays.asList(100, 122, 42, 123);
-
+List <Integer> prod41 = Arrays.asList(100,122,24,123);
+producciones.add(prod41);
 //43.	<J> →  <EXPR> <AUX7>  (42)
-        List<Integer> prod42 = Arrays.asList(45, 43);
-
+List <Integer> prod42 = Arrays.asList(26,25);
+producciones.add(prod42);
 //44.	<AUX7> →  , <J>  (43)
-        List<Integer> prod43 = Arrays.asList(127, 42);
-
+List <Integer> prod43 = Arrays.asList(127,24);
+producciones.add(prod43);
 //45.	<AUX7> →  €  (44)
-        List<Integer> prod44 = Arrays.asList();
-
+List <Integer> prod44 = Arrays.asList();
+producciones.add(prod44);
 //46.	<EXPR> →  <EXPR2> <AUX8> (45)
-        List<Integer> prod45 = Arrays.asList(48, 46);
-
+List <Integer> prod45 = Arrays.asList(48,46);
+producciones.add(prod45);
 //47.	<AUX8> →  || <EXPR2> <AUX8> (46)
-        List<Integer> prod46 = Arrays.asList(105, 48, 46);
-
+List <Integer> prod46 = Arrays.asList(105,28,27);
+producciones.add(prod46);
 //48.	<AUX8> →  € (47)
-        List<Integer> prod47 = Arrays.asList();
-
+List <Integer> prod47 = Arrays.asList();
+producciones.add(prod47);
 //49.	<EXPR2> →  <EXP3> <AUX9> (48)
-        List<Integer> prod48 = Arrays.asList(51, 49);
-
+List <Integer> prod48 = Arrays.asList(30,29);
+producciones.add(prod48);
 //50.	<AUX9> →  && <EXP3> <AUX9> (49)
-        List<Integer> prod49 = Arrays.asList(117, 51, 49);
-
+List <Integer> prod49 = Arrays.asList(117,30,29);
+producciones.add(prod49);
 //51.	<AUX9> →  € (50)
-        List<Integer> prod50 = Arrays.asList();
-
+List <Integer> prod50 = Arrays.asList();
+producciones.add(prod50);
 //52.	<EXPR3> →  <NOT> <EXPR4> (51)
-        List<Integer> prod51 = Arrays.asList(52, 54);
-
+List <Integer> prod51 = Arrays.asList(31,32);
+producciones.add(prod51);
 //53.	<NOT> → ! (52)
-        List<Integer> prod52 = Arrays.asList(115);
-
+List <Integer> prod52 = Arrays.asList(115);
+producciones.add(prod52);
 //54.	<NOT> → € (53)
-        List<Integer> prod53 = Arrays.asList();
-
+List <Integer> prod53 = Arrays.asList();
+producciones.add(prod53);
 //55.	<EXPR4> →  <EXPR5> <M> (54)
-        List<Integer> prod54 = Arrays.asList(63, 55);
-
+List <Integer> prod54 = Arrays.asList(35,33);
+producciones.add(prod54);
 //56.	<M> →  <OPREL> <EXPR5> (55)
-        List<Integer> prod55 = Arrays.asList(57, 63);
-
+List <Integer> prod55 = Arrays.asList(34,35);
+producciones.add(prod55);
 //57.	<M> → € (56)
-        List<Integer> prod56 = Arrays.asList();
-
+List <Integer> prod56 = Arrays.asList();
+producciones.add(prod56);
 //58.	<OPREL> → ==  (57)
-        List<Integer> prod57 = Arrays.asList(110);
-
+List <Integer> prod57 = Arrays.asList(110);
+producciones.add(prod57);
 //59.	<OPREL> → !=  (58)
-        List<Integer> prod58 = Arrays.asList(116);
-
+List <Integer> prod58 = Arrays.asList(116);
+producciones.add(prod58);
 //60.	<OPREL> → <  (59)
-        List<Integer> prod59 = Arrays.asList(111);
-
+List <Integer> prod59 = Arrays.asList(111);
+producciones.add(prod59);
 //61.	<OPREL> → <=  (60)
-        List<Integer> prod60 = Arrays.asList(112);
-
+List <Integer> prod60 = Arrays.asList(112);
+producciones.add(prod60);
 //62.	<OPREL> → >  (61)
-        List<Integer> prod61 = Arrays.asList(113);
-
+List <Integer> prod61 = Arrays.asList(113);
+producciones.add(prod61);
 //63.	<OPREL> → >=  (62)
-        List<Integer> prod62 = Arrays.asList(114);
-
+List <Integer> prod62 = Arrays.asList(114);
+producciones.add(prod62);
 //64.	<EXPR5> →  <TERM> <AUX10> (63)
-        List<Integer> prod63 = Arrays.asList(67, 64);
-
+List <Integer> prod63 = Arrays.asList(37,36);
+producciones.add(prod63);
 //65.	<AUX10> →  + <EXPR5>  (64)
-        List<Integer> prod64 = Arrays.asList(118, 63);
-
+List <Integer> prod64 = Arrays.asList(118,35);
+producciones.add(prod64);
 //66.	<AUX10> → - <EXPR5>  (65)
-        List<Integer> prod65 = Arrays.asList(63);
-
+List <Integer> prod65 = Arrays.asList(35);
+producciones.add(prod65);
 //67.	<AUX10> →  €  (66)
-        List<Integer> prod66 = Arrays.asList();
-
+List <Integer> prod66 = Arrays.asList();
+producciones.add(prod66);
 //68.	<TERM> →  <FACT> <AUX11>  (67)
-        List<Integer> prod67 = Arrays.asList(72, 68);
-
+List <Integer> prod67 = Arrays.asList(39,38);
+producciones.add(prod67);
 //69.	<AUX11> →  * <TERM>  (68)
-        List<Integer> prod68 = Arrays.asList(120, 67);
-
+List <Integer> prod68 = Arrays.asList(120,37);
+producciones.add(prod68);
 //70.	<AUX11> →  / <TERM>   (69)
-        List<Integer> prod69 = Arrays.asList(121, 67);
-
+List <Integer> prod69 = Arrays.asList(121,37);
+producciones.add(prod69);
 //71.	<AUX11> →  % <TERM>  (70)
-        List<Integer> prod70 = Arrays.asList(128, 67);
-
+List <Integer> prod70 = Arrays.asList(128,37);
+producciones.add(prod70);
 //72.	<AUX11> →  €  (71)
-        List<Integer> prod71 = Arrays.asList();
-
+List <Integer> prod71 = Arrays.asList();
+producciones.add(prod71);
 //73.	<FACT> →  <ASIG>  (72)
-        List<Integer> prod72 = Arrays.asList(27);
-
+List <Integer> prod72 = Arrays.asList(13);
+producciones.add(prod72);
 //74.	<FACT> →  cteentera  (73)
-        List<Integer> prod73 = Arrays.asList(102);
-
+List <Integer> prod73 = Arrays.asList(102);
+producciones.add(prod73);
 //75.	<FACT> →  ctereal  (74)
-        List<Integer> prod74 = Arrays.asList(103);
-
+List <Integer> prod74 = Arrays.asList(103);
+producciones.add(prod74);
 //76.	<FACT> →  ctenotacion  (75)
-        List<Integer> prod75 = Arrays.asList(104);
-
+List <Integer> prod75 = Arrays.asList(104);
+producciones.add(prod75);
 //77.	<FACT> →  ctecaracter  (76)
-        List<Integer> prod76 = Arrays.asList(106);
-
+List <Integer> prod76 = Arrays.asList(106);
+producciones.add(prod76);
 //78.	<FACT> →  ctestring  (77)
-        List<Integer> prod77 = Arrays.asList(107);
-
+List <Integer> prod77 = Arrays.asList(107);
+producciones.add(prod77);
 //79.	<FACT> →  ( <EXPR> )  (78)
-        List<Integer> prod78 = Arrays.asList(122, 45, 123);
+List <Integer> prod78 = Arrays.asList(122,26,123);
+producciones.add(prod78);
+//80.	<C> →  €   (80)
+List <Integer> prod79 = Arrays.asList();
+producciones.add(prod79);
     }
 
     public List getPoduccionesByIndex(int index){
@@ -263,62 +275,62 @@ public class Base {
        
     public int getColumnByToken(int lexema, String token){
         int column = 600;
-        switch(column){
+        switch(lexema){
             case 100:
                 switch(token){
                     case "class":
-                        column = 0;
+                        column = 22;
                         break;
                     case "endclass":
-                        column = 0;
+                        column = 23;
                         break;
                     case "int":
-                        column = 0;
+                        column = 26;
                         break;
                     case "float":
-                        column = 0;
+                        column = 27;
                         break;
                     case "char":
-                        column = 0;
+                        column = 28;
                         break;
                     case "string":
-                        column = 0;
+                        column = 29;
                         break;
                     case "declare":
-                        column = 0;
+                        column = 24;
                         break;
                     case "of":
-                        column = 0;
+                        column = 25;
                         break;
                     case "if":
-                        column = 0;
+                        column = 35;
                         break;
                     case "else":
-                        column = 0;
+                        column = 36;
                         break;
                     case "endif":
-                        column = 0;
+                        column = 37;
                         break;
                     case "while":
-                        column = 0;
+                        column = 38;
                         break;
                     case "endwhile":
-                        column = 0;
+                        column = 39;
                         break;
                     case "do":
-                        column = 0;
+                        column = 40;
                         break;
                     case "dowhile":
-                        column = 0;
+                        column = 41;
                         break;
                     case "enddo":
-                        column = 0;
+                        column = 42;
                         break;
                     case "read":
-                        column = 0;
+                        column = 43;
                         break;
                     case "write":
-                        column = 0;
+                        column = 44;
                         break;
                     default:
                         column = 600;
@@ -328,83 +340,83 @@ public class Base {
             case 101:
                 column = 0;
                 break;
+            case 102:
+                column = 30;
+                break;
             case 103:
-                column = 0;
+                column = 31;
                 break;
             case 104:
-                column = 0;
+                column = 32;
                 break;
             case 105:
-                column = 0;
+                column = 19;
                 break;
             case 106:
-                column = 0;
+                column = 33;
                 break;
             case 107:
-                column = 0;
-                break;
-            case 108:
-                column = 0;
+                column = 34;
                 break;
             case 109:
-                column = 0;
+                column = 1;
                 break;
             case 110:
-                column = 0;
+                column = 13;
                 break;
             case 111:
-                column = 0;
+                column = 14;
                 break;
             case 112:
-                column = 0;
+                column = 16;
                 break;
             case 113:
-                column = 0;
+                column = 15;
                 break;
             case 114:
-                column = 0;
+                column = 17;
                 break;
             case 115:
-                column = 0;
+                column = 21;
                 break;
             case 116:
-                column = 0;
+                column = 18;
                 break;
             case 117:
-                column = 0;
+                column = 20;
                 break;
             case 118:
-                column = 0;
+                column = 8;
                 break;
             case 119:
-                column = 0;
+                column = 9;
                 break;
             case 120:
-                column = 0;
+                column = 10;
                 break;
             case 121:
-                column = 0;
+                column = 11;
                 break;
             case 122:
-                column = 0;
+                column = 4;
                 break;
             case 123:
-                column = 0;
+                column = 5;
                 break;
             case 124:
-                column = 0;
+                column = 6;
                 break;
             case 125:
-                column = 0;
+                column = 7;
                 break;
             case 126:
-                column = 0;
+                column = 3;
                 break;
             case 127:
-                column = 0;
+                column = 2;
                 break;
             case 128:
-                column = 0;
+                column = 12;
                 break;
             default:
                 column = 600;

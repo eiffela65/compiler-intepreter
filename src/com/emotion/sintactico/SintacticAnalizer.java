@@ -10,6 +10,7 @@ import java.util.Stack;
 import com.emotion.semantic.SemanticAnalizer;
 import com.emotion.sintactico.Base;
 import com.emotion.semantic.Symols;
+import java.util.Collections;
 import java.util.List;
 import java.util.ListIterator;
 
@@ -68,27 +69,27 @@ public class SintacticAnalizer {
                 status = fillFirtsProduction(lexemas.get(i), tokens.get(i));
             
             int currentElement = productions.peek();
+            System.out.println("Current Element:    " + currentElement);
+            System.out.println("Lexema:    " + lexemas.get(i));
             if(currentElement == lexemas.get(i)){  // comparacion con el resultado de lexico
                 productions.pop();
                 i++;
                 continue;
             }
             else{
-                if(currentElement == 300){
+                if(currentElement < 100){
                     productions.pop();
-                    status = isValidToken(lexemas.get(i), tokens.get(i));
+                    status = isValidToken(lexemas.get(i), tokens.get(i), currentElement);
                 }
                 else
                     status = false;
             }
             
-            if(!status)
+            if(!status){
+                System.out.println("ERROR SINTACTICO cerca de: " + tokens.get(i));
                 break;
-//            status = isValidToken(lexemas.get(i), tokens.get(i));
-//            if(!status)
-//                break;
-//            
-//            status = compareToken();
+            }
+            i++;
         }
         
         return status;
@@ -96,41 +97,44 @@ public class SintacticAnalizer {
     
     private boolean fillFirtsProduction(int lexema, String token){
         int column = sintacticBase.getColumnByToken(lexema, token);
+        System.out.println("[" + rowGramar + " - " + column + "]");
         int prod = sintacticBase.gramar[rowGramar][column];
         System.out.println("El valor de la matriz es:   " + prod);
         if(prod == 600)
             return false;  
-        getRowByProduction(prod);
         insertNewElements(prod);
         return true;
     }
     
-    private boolean isValidToken(int lexema, String token){
+    private boolean isValidToken(int lexema, String token, int row){
+        System.out.println("########################################");
+        System.out.println("Lexema: " + lexema + "   Token: " + token + "    Row: " + row);
         int column = sintacticBase.getColumnByToken(lexema, token);
-        int prod = sintacticBase.gramar[rowGramar][column];
+        System.out.println("[" + rowGramar + " - " + column + "]");
+        int prod = sintacticBase.gramar[row][column];
+        System.out.println("El valor de la matriz es:   " + prod);
         if(prod == 600)
             return false;
-        getRowByProduction(prod);
         insertNewElements(prod);
         return true;
     }
 
     public void insertNewElements(int production) {
         List poductionLine = sintacticBase.getPoduccionesByIndex(production);
-        // Generate an iterator. Start just after the last element.
-        ListIterator li = poductionLine.listIterator(poductionLine.size());
-
-// Iterate in reverse.
-        while (li.hasPrevious()) {
-            System.out.println(li.previous());
-//            productions.add(li.previous());
+        int size = poductionLine.size();
+        Collections.reverse(poductionLine);
+        for(int i = 0; i < size ; i++){
+            System.out.println((int) poductionLine.get(i));
+            productions.add((int) poductionLine.get(i));
         }
+            
+        
     }
 
     public void getRowByProduction(int production){
         switch(production){
             case 0:
-                rowGramar = 1;
+                rowGramar = 0;
                 break;
             case 1:
                 rowGramar = 1;
