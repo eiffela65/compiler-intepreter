@@ -69,17 +69,22 @@ public class SintacticAnalizer {
                 status = fillFirtsProduction(lexemas.get(i), tokens.get(i));
             
             int currentElement = productions.peek();
-            System.out.println("Current Element:    " + currentElement);
-            System.out.println("Lexema:    " + lexemas.get(i));
+            System.out.println("Tope de la pila:    " + currentElement);
+            System.out.println("Elemento del Lexico:    " + lexemas.get(i));
             if(currentElement == lexemas.get(i)){  // comparacion con el resultado de lexico
                 productions.pop();
                 i++;
+                System.out.println("_______________________________________________________________________________________");
                 continue;
             }
             else{
                 if(currentElement < 100){
+                    System.out.println("Procesando a un no terminal");
                     productions.pop();
                     status = isValidToken(lexemas.get(i), tokens.get(i), currentElement);
+                    System.out.println("_______________________________________________________________________________________");
+                    if(status)
+                        continue;
                 }
                 else
                     status = false;
@@ -90,6 +95,7 @@ public class SintacticAnalizer {
                 break;
             }
             i++;
+            System.out.println("_______________________________________________________________________________________");
         }
         
         return status;
@@ -107,12 +113,10 @@ public class SintacticAnalizer {
     }
     
     private boolean isValidToken(int lexema, String token, int row){
-        System.out.println("########################################");
-        System.out.println("Lexema: " + lexema + "   Token: " + token + "    Row: " + row);
         int column = sintacticBase.getColumnByToken(lexema, token);
-        System.out.println("[" + rowGramar + " - " + column + "]");
         int prod = sintacticBase.gramar[row][column];
-        System.out.println("El valor de la matriz es:   " + prod);
+        System.out.println("Columna en base a lexema: " + token);
+        System.out.println("Produccion obtenida en posicion [" + row + " - " + column + "]: " + prod);
         if(prod == 600)
             return false;
         insertNewElements(prod);
@@ -123,11 +127,12 @@ public class SintacticAnalizer {
         List poductionLine = sintacticBase.getPoduccionesByIndex(production);
         int size = poductionLine.size();
         Collections.reverse(poductionLine);
+        System.out.println("Elementos de la produccion: " + production + "\n");
         for(int i = 0; i < size ; i++){
-            System.out.println((int) poductionLine.get(i));
+            System.out.print((int) poductionLine.get(i) + "   ");
             productions.add((int) poductionLine.get(i));
         }
-            
+        System.out.println("\n");    
         
     }
 
