@@ -5,14 +5,22 @@
  */
 package com.emotion.semantic;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Stack;
 
 
 public class SemanticAnalizer {
 
     public Map<String, Symols> semanticSymbolTable = new HashMap<String, Symols>();
+    public Stack<String> operandos = new Stack();
+    public Stack<String> operadores = new Stack();
+    public Stack<String> tipos = new Stack();
+    public Stack<String> temporal = new Stack();
+    public Stack<Integer> saltos = new Stack();
+    public List<Cuadruplos> cuadruplos = new ArrayList<Cuadruplos>();
 
     public Symols getVariable(String variable) {
         if (isVariable(variable)) {
