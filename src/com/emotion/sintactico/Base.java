@@ -60,10 +60,10 @@ public class Base {
     
     private void initListas() {
 //<PROGRAM>  → class (id) <DECLARA> <ESTATUTOS> endclass
-List <Integer> prod0 = Arrays.asList(100,122,101,900,123,1,9,100);
+List <Integer> prod0 = Arrays.asList(100,122,101,/*900,*/123,1,9,100);
 producciones.add(prod0);
 //<DECLARA> → declare <B>  of  <TIPO> ; <AUX>   111
-List <Integer> prod1 = Arrays.asList(100,2,100,7,926,126,8);
+List <Integer> prod1 = Arrays.asList(100,2,100,7,/*926,*/126,8);
 producciones.add(prod1);
 //<DECLARA> → €     
 List <Integer> prod2 = Arrays.asList();
@@ -72,7 +72,7 @@ producciones.add(prod2);
 List <Integer> prod3 = Arrays.asList(3,6);
 producciones.add(prod3);
 //<ID_DIM> → id <C>
-List <Integer> prod4 = Arrays.asList(101,914,4);
+List <Integer> prod4 = Arrays.asList(101,/*914,*/4);
 producciones.add(prod4);
 //<C> → [cteentera] <AUX3>     
 List <Integer> prod5 = Arrays.asList(124,102,125,5); //AQUI NO SE QUE ACCION SEMANTICA VA
@@ -138,10 +138,10 @@ producciones.add(prod24);
 List <Integer> prod25 = Arrays.asList();
 producciones.add(prod25);
 //27.	<EST_ASIG> →  <ASIG> = <EXPR> (26)
-List <Integer> prod26 = Arrays.asList(13,109,26,915);
+List <Integer> prod26 = Arrays.asList(13,109,26/*915,*/);
 producciones.add(prod26);
 //28.	<ASIG> →  id <DIM_ASIG> (27)
-List <Integer> prod27 = Arrays.asList(101,901,14);
+List <Integer> prod27 = Arrays.asList(101,/*901,*/14);
 producciones.add(prod27);
 //29.	<DIM_ASIG> →  [<EXPR> <AUX5>] (28)
 List <Integer> prod28 = Arrays.asList(124,26,15,125); //NO SUPE COMO HACER DIMENSIONADAS
@@ -156,25 +156,25 @@ producciones.add(prod30);
 List <Integer> prod31 = Arrays.asList();
 producciones.add(prod31);
 //33.	<EST_IF> →  if(<EXPR>) <ESTATUTOS> <H> endif (32)
-List <Integer> prod32 = Arrays.asList(100,122,902,26,123,903,916,917,100,918);
+List <Integer> prod32 = Arrays.asList(100,122,/*902,*/26,123/*903,*//*916,*/,9,17,100/*918,*/);
 producciones.add(prod32);
 //34.	<H> →  else <ESTATUTOS> (33)
-List <Integer> prod33 = Arrays.asList(100,917,9);
+List <Integer> prod33 = Arrays.asList(100,/*917,*/9);
 producciones.add(prod33);
 //35.	<H> →  € (34)
 List <Integer> prod34 = Arrays.asList();
 producciones.add(prod34);
 //36.	<EST_WHILE> →  while (<EXPR>) <ESTATUTOS> endwhile (35)
-List <Integer> prod35 = Arrays.asList(100,919,122,902,26,123,903,920,9,100,921);
+List <Integer> prod35 = Arrays.asList(100,/*919,*/122,/*902,*/26,123,/*903,*//*920,*/9,100/*921,*/);
 producciones.add(prod35);
 //37.	<EST_DO> → do <ESTATUTOS> dowhile (<EXPR>) enddo (36)
-List <Integer> prod36 = Arrays.asList(100,922,9,100,122,902,26,123,903,100,923);
+List <Integer> prod36 = Arrays.asList(100,/*922,*/9,100,122,/*902,*/26,123,/*903,*/100/*923,*/);
 producciones.add(prod36);
 //38.	<EST_READ> →  read (<I>) (37)
-List <Integer> prod37 = Arrays.asList(100,122,932,21,123,934);
+List <Integer> prod37 = Arrays.asList(100,122,/*932,*/21,123/*934,*/);
 producciones.add(prod37);
 //39.	<I> →  id <AUX6> (38)
-List <Integer> prod38 = Arrays.asList(101,930,22);
+List <Integer> prod38 = Arrays.asList(101,/*930,*/22);
 producciones.add(prod38);
 //40.	<AUX6> →  , <I>  (39)
 List <Integer> prod39 = Arrays.asList(127,21);
@@ -183,10 +183,10 @@ producciones.add(prod39);
 List <Integer> prod40 = Arrays.asList();
 producciones.add(prod40);
 //42.	<EST_WRITE> →  write (<J>)  (41)
-List <Integer> prod41 = Arrays.asList(100,122,932,24,123,934);
+List <Integer> prod41 = Arrays.asList(100,122,/*932,*/24,123/*934,*/);
 producciones.add(prod41);
 //43.	<J> →  <EXPR> <AUX7>  (42)
-List <Integer> prod42 = Arrays.asList(26,931,25);
+List <Integer> prod42 = Arrays.asList(26,/*931,*/25);
 producciones.add(prod42);
 //44.	<AUX7> →  , <J>  (43)
 List <Integer> prod43 = Arrays.asList(127,24);
@@ -195,19 +195,19 @@ producciones.add(prod43);
 List <Integer> prod44 = Arrays.asList();
 producciones.add(prod44);
 //46.	<EXPR> →  <EXPR2> <AUX8> (45)
-List <Integer> prod45 = Arrays.asList(28,929,27);
+List <Integer> prod45 = Arrays.asList(28,/*929,*/27);
 producciones.add(prod45);
 //47.	<AUX8> →  || <EXPR2> <AUX8> (46)
-List <Integer> prod46 = Arrays.asList(105,910,28,27); //AQUI NO SE SI DEBO PONER DE NUEVO LA ACCION DE ARRIBA LA DE  AL LADO DE EXPR2
+List <Integer> prod46 = Arrays.asList(105,/*910,*/28,27); //AQUI NO SE SI DEBO PONER DE NUEVO LA ACCION DE ARRIBA LA DE  AL LADO DE EXPR2
 producciones.add(prod46);
 //48.	<AUX8> →  € (47)
 List <Integer> prod47 = Arrays.asList();
 producciones.add(prod47);
 //49.	<EXPR2> →  <EXPR3> <AUX9> (48)
-List <Integer> prod48 = Arrays.asList(30,928,29);
+List <Integer> prod48 = Arrays.asList(30,/*928,*/29);
 producciones.add(prod48);
 //50.	<AUX9> →  && <EXP3> <AUX9> (49)
-List <Integer> prod49 = Arrays.asList(117,909,30,29); //AQUI NO SE SI DEBO PONER DE NUEVO LACCION DE ARRIBA LA DEL AL LADO DE EXPR3
+List <Integer> prod49 = Arrays.asList(117,/*909,*/30,29); //AQUI NO SE SI DEBO PONER DE NUEVO LACCION DE ARRIBA LA DEL AL LADO DE EXPR3
 producciones.add(prod49);
 //51.	<AUX9> →  € (50)
 List <Integer> prod50 = Arrays.asList();
@@ -216,7 +216,7 @@ producciones.add(prod50);
 List <Integer> prod51 = Arrays.asList(31,32);
 producciones.add(prod51);
 //53.	<NOT> → ! (52)
-List <Integer> prod52 = Arrays.asList(115,908);
+List <Integer> prod52 = Arrays.asList(115/*908,*/);
 producciones.add(prod52);
 //54.	<NOT> → € (53)
 List <Integer> prod53 = Arrays.asList();
@@ -225,52 +225,52 @@ producciones.add(prod53);
 List <Integer> prod54 = Arrays.asList(35,33);
 producciones.add(prod54);
 //56.	<M> →  <OPREL> <EXPR5> (55)
-List <Integer> prod55 = Arrays.asList(34,35,927);
+List <Integer> prod55 = Arrays.asList(34,35/*927,*/);
 producciones.add(prod55);
 //57.	<M> → € (56)
 List <Integer> prod56 = Arrays.asList();
 producciones.add(prod56);
 //58.	<OPREL> → ==  (57)
-List <Integer> prod57 = Arrays.asList(110,907);
+List <Integer> prod57 = Arrays.asList(110/*907,*/);
 producciones.add(prod57);
 //59.	<OPREL> → !=  (58)
-List <Integer> prod58 = Arrays.asList(116,907);
+List <Integer> prod58 = Arrays.asList(116/*907,*/);
 producciones.add(prod58);
 //60.	<OPREL> → <  (59)
-List <Integer> prod59 = Arrays.asList(111,907);
+List <Integer> prod59 = Arrays.asList(111/*907,*/);
 producciones.add(prod59);
 //61.	<OPREL> → <=  (60)
-List <Integer> prod60 = Arrays.asList(112,907);
+List <Integer> prod60 = Arrays.asList(112/*907,*/);
 producciones.add(prod60);
 //62.	<OPREL> → >  (61)
-List <Integer> prod61 = Arrays.asList(113,907);
+List <Integer> prod61 = Arrays.asList(113/*907,*/);
 producciones.add(prod61);
 //63.	<OPREL> → >=  (62)
-List <Integer> prod62 = Arrays.asList(114,907);
+List <Integer> prod62 = Arrays.asList(114/*907,*/);
 producciones.add(prod62);
 //64.	<EXPR5> →  <TERM> <AUX10> (63)
-List <Integer> prod63 = Arrays.asList(37,925,36);
+List <Integer> prod63 = Arrays.asList(37,/*925,*/36);
 producciones.add(prod63);
 //65.	<AUX10> →  + <EXPR5>  (64)
-List <Integer> prod64 = Arrays.asList(118,906,35);
+List <Integer> prod64 = Arrays.asList(118,/*906,*/35);
 producciones.add(prod64);
 //66.	<AUX10> → - <EXPR5>  (65)
-List <Integer> prod65 = Arrays.asList(35,906);
+List <Integer> prod65 = Arrays.asList(35/*906,*/);
 producciones.add(prod65);
 //67.	<AUX10> →  €  (66)
 List <Integer> prod66 = Arrays.asList();
 producciones.add(prod66);
 //68.	<TERM> →  <FACT> <AUX11>  (67)
-List <Integer> prod67 = Arrays.asList(39,924,38);
+List <Integer> prod67 = Arrays.asList(39,/*924,*/38);
 producciones.add(prod67);
 //69.	<AUX11> →  * <TERM>  (68)
-List <Integer> prod68 = Arrays.asList(120,905,37);
+List <Integer> prod68 = Arrays.asList(120,/*905,*/37);
 producciones.add(prod68);
 //70.	<AUX11> →  / <TERM>   (69)
-List <Integer> prod69 = Arrays.asList(121,905,37);
+List <Integer> prod69 = Arrays.asList(121,/*905,*/37);
 producciones.add(prod69);
 //71.	<AUX11> →  % <TERM>  (70)
-List <Integer> prod70 = Arrays.asList(128,905,37);
+List <Integer> prod70 = Arrays.asList(128,/*905,*/37);
 producciones.add(prod70);
 //72.	<AUX11> →  €  (71)
 List <Integer> prod71 = Arrays.asList();
@@ -279,22 +279,22 @@ producciones.add(prod71);
 List <Integer> prod72 = Arrays.asList(13);
 producciones.add(prod72);
 //74.	<FACT> →  cteentera  (73)
-List <Integer> prod73 = Arrays.asList(102,904);
+List <Integer> prod73 = Arrays.asList(102/*904,*/);
 producciones.add(prod73);
 //75.	<FACT> →  ctereal  (74)
-List <Integer> prod74 = Arrays.asList(103,904);
+List <Integer> prod74 = Arrays.asList(103/*904,*/);
 producciones.add(prod74);
 //76.	<FACT> →  ctenotacion  (75)
-List <Integer> prod75 = Arrays.asList(104,904);
+List <Integer> prod75 = Arrays.asList(104/*904,*/);
 producciones.add(prod75);
 //77.	<FACT> →  ctecaracter  (76)
-List <Integer> prod76 = Arrays.asList(106,904);
+List <Integer> prod76 = Arrays.asList(106/*904,*/);
 producciones.add(prod76);
 //78.	<FACT> →  ctestring  (77)
-List <Integer> prod77 = Arrays.asList(107,904);
+List <Integer> prod77 = Arrays.asList(107/*904,*/);
 producciones.add(prod77);
 //79.	<FACT> →  ( <EXPR> )  (78)
-List <Integer> prod78 = Arrays.asList(122,902,26,123,903);
+List <Integer> prod78 = Arrays.asList(122,/*902,*/26,123/*903,*/);
 producciones.add(prod78);
 //80.	<C> →  €   (80)
 List <Integer> prod79 = Arrays.asList();
