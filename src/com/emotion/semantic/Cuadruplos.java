@@ -1,14 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package com.emotion.semantic;
 
-/**
- *
- * @author Neftali
- */
+
 public class Cuadruplos {
     private String operador;
     private String operando1;
