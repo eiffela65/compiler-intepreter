@@ -74,19 +74,19 @@ public class SintacticAnalizer {
             }
 
             int currentElement = productions.peek();
-            System.out.println("Tope de la pila:    " + currentElement);
-            System.out.println("Elemento del Lexico:    " + lexemas.get(i));
+          // System.out.println("Tope de la pila:    " + currentElement);
+           // System.out.println("Elemento del Lexico:    " + lexemas.get(i));
             if (currentElement == lexemas.get(i)) {  // comparacion con el resultado de lexico
                 productions.pop();
                 i++;
-                System.out.println("_______________________________________________________________________________________");
+             //   System.out.println("_______________________________________________________________________________________");
                 continue;
             } else {
                 if (currentElement < 100) {
                     System.out.println("Procesando a un no terminal");
                     productions.pop();
                     status = isValidToken(lexemas.get(i), tokens.get(i), currentElement);
-                    System.out.println("_______________________________________________________________________________________");
+                 //   System.out.println("_______________________________________________________________________________________");
                     if (status) {
                         continue;
                     }
@@ -108,7 +108,7 @@ public class SintacticAnalizer {
                 break;
             }
             i++;
-            System.out.println("_______________________________________________________________________________________");
+       //     System.out.println("_______________________________________________________________________________________");
         }
         if (!semanticStatus) {
             System.out.println("ERROR SEMANTICO: " + semanticErrorMessage);
