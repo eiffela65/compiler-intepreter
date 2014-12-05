@@ -98,7 +98,20 @@ public class SintacticAnalizer {
             System.out.println("_______________________________________________________________________________________");
         }
         
+        if(!productions.empty()){
+            System.out.println("ERROR SINTACTICO: La pila de producciones no esta vacia.");
+            status = false;
+            showStack();
+        }
+        
         return status;
+    }
+    
+    private void showStack(){
+        int size = productions.size();
+        for(int i = 0; i < size; i++){
+            System.out.println("Elemento de la pila de producciones - " + productions.pop());
+        }
     }
     
     private boolean fillFirtsProduction(int lexema, String token){
@@ -126,9 +139,9 @@ public class SintacticAnalizer {
     public void insertNewElements(int production) {
         List poductionLine = sintacticBase.getPoduccionesByIndex(production);
         int size = poductionLine.size();
-        Collections.reverse(poductionLine);
+        //Collections.reverse(poductionLine);
         System.out.println("Elementos de la produccion: " + production + "\n");
-        for(int i = 0; i < size ; i++){
+        for(int i = size - 1; i >= 0 ; i--){
             System.out.print((int) poductionLine.get(i) + "   ");
             productions.add((int) poductionLine.get(i));
         }

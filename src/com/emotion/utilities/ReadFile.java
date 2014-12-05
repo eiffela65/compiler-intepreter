@@ -60,7 +60,9 @@ public class ReadFile {
         sintactic.setColumnGramar(0);
         sintactic.setLexemas(lexemas);
         sintactic.setTokens(tokens);
-        sintactic.startAnalisis(fileName);
+        status = sintactic.startAnalisis(fileName);
+        if(status)
+            System.out.println("Analisis Sintactico competo sin errores");
         return status;
     }
 
