@@ -1,4 +1,4 @@
-class (Declaraciones)
+class (Declar0aciones)
 declare P of int;
 declare W_x of float;
 declare H_f_2 of char;
