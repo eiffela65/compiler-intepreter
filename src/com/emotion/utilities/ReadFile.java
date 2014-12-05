@@ -62,7 +62,7 @@ public class ReadFile {
         sintactic.setTokens(tokens);
         status = sintactic.startAnalisis(fileName);
         if(status)
-            System.out.println("Analisis Sintactico competo sin errores");
+            System.out.println("Analisis Sintactico completo sin errores");
         return status;
     }
 
