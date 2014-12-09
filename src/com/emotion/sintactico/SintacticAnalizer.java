@@ -297,6 +297,239 @@ public class SintacticAnalizer {
                     }
                 }
                 break;
+                
+                case 908: //push pila de operadores (
+                    break;
+                    
+                case 909: //Despues ) 
+                    //1  validar pila de operandos, operadores, tipos no esta vacia
+                    //2  pop () 3 pilas
+                    //3  repetimos 1
+                    //4  pop() pila de operandos y tipos
+                    //5 validar tipos variables
+                    //6  validar tipo de operador vs tipo de operando BOOLEAN?
+                    //7  Hacer operacion y agregar a TS  variable temporal  GENERAR CUADRUPLO
+                    //   push tabla de operandos T1
+                    //    push tabla de tipos
+                    //  *liberar variable temporal*
+                    //   todo en ciclo hasta que se tope con (
+                    
+                    break;
+                         
+                case 910: 
+                    //1 validamos pila de operadores no sea vacia
+                    //2   peek() pila de operadores
+                    //3 si operador == * / %
+                    // validamos pila de operandos y tipos no este vacia
+                    // pop() pila operandos y tipos
+                    //validamos pila de operandos y tipos no este vacia 
+                    //pop() pila de operandos y tipos
+                    //4  validar tipos operandos
+                    //5 validar operador vs operando
+                    //6  hacer operacion      
+                    //7 push pila operandos y tipo
+                   
+                    //8 GENERAR CUADRUPLO
+                    //9 *SI alguno de los operandos correspondia a un temporal ENTONCES regresarlo al avail*
+                    
+                    //NOTA
+                    //si alguno de los operandos correspondia a un temporal ENTONCES regresarlo al avail
+                    //push pila de operandos (resultado)
+                    //pop pila de operadores
+                    
+                    break;
+                
+                 case 911:
+                     //agregar a lista de operadores
+                     //validar operadores
+                     // (seguir notacion polaca)
+                    break;
+                     
+                 case 912: 
+                     //agregar a lista de operadores
+                     //validar operadores
+                     //(seguir notacion polaca)
+                    break;
+                     
+                  case 913: 
+                      //agregar a lista de operadores
+                     //validar operadores
+                     //(seguir notacion polaca)
+                    break;
+                      
+                  case 914: //DESPUES DE EXPR5
+                      // similar a 910 con todos sus pasos pero evaluando operadores +  -
+                      //y con cuadruplo con +  o  -
+                    break;
+                      
+                  case 915: 
+                      //agregar a lista de operadores
+                      //validar operadores
+                      // (seguir notacion polaca)
+                    break;
+                      
+                   case 916: 
+                    //agregar a lista de operadores
+                      //validar operadores
+                      // (seguir notacion polaca)
+                       
+                    break;
+                       
+                   case 917: //DESPUES DE OPEREL
+                    //agregar operador a pila de operadores
+                       //(seguir notacion polaca)
+                       
+                    break;
+                       
+                    case 918: 
+                        
+                        //1  validar pila operandos, operadores y tipos no estan vacios
+                        //2  pop()  3 pilas
+                        //3  validar pila de operandos y tipos no este vacia
+                        //4  pop pila operandos    pop pila de tipos
+                        //5  validar tipos
+                        //6 operacion logica return valor, boolean  GENERAR CUADRUPLO
+                        //7  push valor a pila de operandos y push boolean a pila de tipos
+                    break;
+                        
+                    case 919: //DESPUES DE !
+                        //push ! pila operadores
+                    break;
+                        
+                    case 920: 
+                        //1  validar pilas (operando,operador,tipos) no esten vacias
+                        //2   pop pila de operadores
+                        //3  si operador == !
+                        //4  pop pila de operandos  pop pila de tipos
+                        //5  validar tipo = boolean
+                        // si es boolean:
+                       //     5.1  cambiar valor   (REALIZA CUADRUPLO? )
+                       //     5.2  push nuevo valor a pila de operandos
+                        //    5.3  push boolean a pila de tipos
+                        
+                        //Y SINO ES BOOLEAN ES ERROR SEMANTICO NO?
+                    break;
+                        
+                    case 921: //DESPUES DE EXPR3
+                        //1   peek() pila de operadores
+                        //2    si operador = &&
+                        //       2.1   pop pila de tipos  pop pila de operandos   pop pila operadores
+                        //       2.1  si tipos = boolean
+                        //             2.1.1  pop pila de operandos   pop pila de tipos
+                        //             2.1.1  si tipos = boolean
+                        //                   2.1.1.1   Hacer operacion logica valor, boolean    GENERAR CUADRUPLO
+                        //                   2.1.1.2   push valor y tipo a pila de operandos y pila de tipos
+                        //3   sino no hacer nada
+                    break;
+                        
+                    case 922://DESPUES DE EXPR3
+                        //agregar && a pila de operadores
+                    break;
+                        
+                    case 923: //DESPUES DE EXPR2
+                        //igual que la 921 pero con ||
+                         //1   peek() pila de operadores
+                         //2    si operador = ||
+                        //       2.1   pop pila de tipos  pop pila de operandos   pop pila operadores
+                        //       2.1  si tipos = boolean
+                        //             2.1.1  pop pila de operandos   pop pila de tipos
+                        //             2.1.1  si tipos = boolean
+                        //                   2.1.1.1   Hacer operacion logica valor, boolean    GENERAR CUADRUPLO
+                        //                   2.1.1.2   push valor y tipo a pila de operandos y pila de tipos
+                        //3   sino no hacer nada
+                        
+                    break;
+                        
+                    case 924://DESPUES DE EXPR2
+                        //agregar || a pila de operadores
+                    break;
+                        
+                    case 925://EST_ASIG despues de id
+                        //1     validar id este en tabla de simbolos
+                        //1.1   push pila de operandos
+                    break;
+                        
+                        
+                    case 926: 
+                        //push = a pila de operadores
+                    break;
+                        
+                    case 927: 
+                        //1    validar pila de tipos, operandos, operadores NO esten vacias
+                        //2    pop pila de operandos,  pop pila de tipos,   pop pila de operadores
+                        //3    validar pila de tipos y operandos no esten vacias
+                        //4    pop pila de operando, pop pila de tipos 
+                        //5    validar tipos
+                        //6    hacer operacion valor, tipo
+                        //7    CREAR CUADRUPLO
+                        //8     verificar que operando 2 este en tabla de simbolos  QUE NO VA ANTES DE HACER LA OPERACION?
+                        //9    actualizar tabla de simbolos
+                    break;
+                         
+                    case 928: //EST_IF
+                        //1   validar pila operando y tipo no este vacia
+                        //2   pop pila de operandos, pop pila de tipos
+                        //3   validar tipo=boolean
+                        //   IF condition=true    FALSE NO?
+                                //CREA CUADRUPLO A  salto falso ASI:
+                                
+                                 //push a pila de saltos (cont) *con la posicion del contador* (METER FALSO)
+                                //sacar resultado de pila de operandos
+                                //generar gotofalso de resultado a una direccion pendiente por resolver ASI:
+
+                                //(operador, operando1, operando2 resultado)
+                                //(gotofalso, resultado*popPilaDeOperandos*,    , ? *pendiente por resolver*)
+                        
+                        //     ELSE  NEFT VERIFICA PARA ESTA PARTE COMO SE HACE EN EL BLOC DE NOTAS QUE TE ENVIE
+                        // EN LA ACCION 917
+                        //      CREA CUADRUPLO salto verdadero pendiente 
+                        //      push pila de saltos (cont-1)
+                        
+                        // DESPUES DEL ELSE
+                         //valida pila de saltos vacia
+                        //pop pila de saltos
+                        //con el apuntador    (contador)
+                    break;
+                         
+                         
+                    case 929: //DESPUES ENDIF 
+                        //validar pila de saltos no este vacia
+                        //pop pila de saltos
+                        //actualiza cuadruplos con apuntador actual
+                    break;
+                        
+                   case 930: //EST_WHILE
+                       //igual a 928
+                    break;
+                       
+                   case 931: //ENDWHILE
+                       //Igual que 929
+                    break;
+                       
+                    case 932: //EST_DO
+                        //igual que 928
+                    break;
+                   
+                   case 933: //ENDO
+                       //Igual que 929
+                    break;
+                   
+                  case 934: //EST_WRITE
+                      //1  valida que pila de operandos no este vacia
+                      //2  pop pila de operandos
+                      //3   muestra operando
+                      
+                      //Y EL CUADRUPLO (OUTPUT, ,  ,id) ?
+                      //Y SI SE PONE WRITE "HOLA" ? tambien estara en pila de operandos la cadena?
+                      
+                    break;
+                     
+                      
+                  case 935: //EST_READ
+                      //Meter marca de fondo falso a pila de operador (
+                      //GENERAR CUADRUPLO (INPUT,  ,  ,id)
+                      //cuando se encuentre con ) sacar marca de fondo falso
+                    break;
             default:
                 status = false;
         }
